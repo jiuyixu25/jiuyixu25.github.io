@@ -35,7 +35,7 @@
             background: #f4f4f4;
         }
         .hero img {
-            width: 200px; /* Adjusted to be even smaller */
+            width: 200px;
             height: auto;
             border-radius: 5px;
             vertical-align: middle;
@@ -52,17 +52,59 @@
         .about-container {
             display: flex;
             align-items: flex-start;
+            padding: 0 20px;
         }
         .about-image {
-            width: 150px; /* Adjust as needed */
+            width: 150px;
             height: auto;
-            margin-right: 40px; /* Space between image and text */
-            border-radius: 10px; /* Optional for rounded corners */
+            margin-right: 40px;
+            border-radius: 10px;
         }
-
         .about-text {
             flex: 1;
             text-align: justify;
+        }
+        .section {
+            padding: 50px 20px;
+        }
+        .section h2 {
+            text-align: center;
+            color: #0044cc;
+            font-size: 28px;
+        }
+        .publication-list, .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        .publication-list li, .news-list li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .project-card {
+            width: 300px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .project-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .project-card h3 {
+            margin-top: 10px;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -76,7 +118,9 @@
         <a href="#projects">Projects</a>
         <a href="#news">News</a>
     </nav>
-    <section class="hero">
+
+    <!-- About Section -->
+    <section class="hero" id="about">
         <h1>About</h1>
         <div class="about-container">
             <img src="jiuyixu.jpg" alt="Jiuyi Xu" class="about-image">
@@ -91,5 +135,50 @@
             </div>
         </div>
     </section>
+
+    <!-- Publications Section -->
+    <section class="section" id="publications">
+        <h2>Publications</h2>
+        <ul class="publication-list">
+            <li><strong>Xu, J.</strong>, et al. (2024). "Title of Paper." Journal of Computing in Civil Engineering.</li>
+            <li><strong>Xu, J.</strong>, et al. (2023). "Deep Learning for Open-Vocabulary Object Detection." CVPR Workshop.</li>
+            <li><strong>Xu, J.</strong>, et al. (2022). "Generative AI in Robotics: A Survey." IEEE Transactions on Robotics.</li>
+            <li>More publications coming soon...</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project-card">
+                <img src="project1.jpg" alt="Project 1">
+                <h3>Generative AI for Robotics</h3>
+                <p>Using GANs and reinforcement learning for robot control and behavior prediction.</p>
+            </div>
+            <div class="project-card">
+                <img src="project2.jpg" alt="Project 2">
+                <h3>Open-Vocabulary Object Detection</h3>
+                <p>Developing robust object detection models with large-scale vision datasets.</p>
+            </div>
+            <div class="project-card">
+                <img src="project3.jpg" alt="Project 3">
+                <h3>Semantic Segmentation in AI</h3>
+                <p>Building segmentation models for autonomous systems using deep learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="section" id="news">
+        <h2>News</h2>
+        <ul class="news-list">
+            <li><strong>March 2025:</strong> Presented research at the AAAI 2025 Conference.</li>
+            <li><strong>February 2025:</strong> Published a paper on generative reinforcement learning in IEEE Robotics.</li>
+            <li><strong>January 2025:</strong> Joined the IEEE Robotics & Automation Society.</li>
+            <li>More updates coming soon...</li>
+        </ul>
+    </section>
+
 </body>
 </html>
