@@ -155,29 +155,16 @@
             <div class="project-card">
                 <img src="arch.pdf" alt="Project 1">
                 <h3>LowDiff</h3>
-                <p>Diffusion models have achieved remarkable success in image generation but their practical application is often hindered by the slow sampling speed. Prior efforts of improving efficiency primarily focus on compressing models or reducing the total number of denoising steps, largely neglecting the possibility to leverage multiple input resolutions in the generation process. In this work, we propose LowDiff, a novel and efficient diffusion framework based on a cascaded approach by generating increasingly higher resolution outputs. Besides, LowDiff employs a unified model to progressively refine images from low resolution to the desired resolution. With the proposed architecture design and generation techniques, we achieve comparable or even superior performance with much fewer high-resolution sampling steps. LowDiff is applicable to diffusion models in both pixel space and latent space. Extensive experiments on both conditional and unconditional generation tasks across CIFAR-10, FFHQ and ImageNet demonstrate the effectiveness and generality of our method. Results show over 50% throughput improvement across all datasets and settings while maintaining comparable or better quality. On unconditional CIFAR-10, LowDiff achieves an FID of 2.11 and IS of 9.87, while on conditional CIFAR-10, an FID of 1.94 and IS of 10.03. On FFHQ 64x64, LowDiff achieves an FID of 2.43, and on ImageNet 256x256, LowDiff built on LightningDiT-B/1 produces high-quality samples with a FID of 4.00 and an IS of 195.06, together with substantial efficiency gains.</p>
+                <p>In this work, we propose LowDiff, a novel and efficient diffusion framework based on a cascaded approach by generating increasingly higher resolution outputs. Besides, LowDiff employs a unified model to progressively refine images from low resolution to the desired resolution. With the proposed architecture design and generation techniques, we achieve comparable or even superior performance with much fewer high-resolution sampling steps. LowDiff is applicable to diffusion models in both pixel space and latent space.</p>
             </div>
             <div class="project-card">
                 <img src="ovod_arch.jpg" alt="Project 2">
                 <h3>OVHR3D</h3>
-                <p>In the domain of the U.S. Army modeling and simulation (M&S), the availability of high-quality annotated 3D data is pivotal to create virtual environments for training and simulations. Traditional methodologies for 3D semantic/instance segmentation, such as KpConv, RandLA, Mask3D, etc., are designed to train on extensive labeled
-                   datasets to obtain satisfactory performance in practical tasks. This requirement presents a significant challenge, given
-                   the inherent scarcity of manually annotated 3D datasets, particularly for the military use cases. Recognizing this gap,
-                   our previous research leverages the One World Terrain (OWT) data repository’s manually annotated databases, as
-                   showcased at I/ITSEC 2019 and 2021, to enrich the training dataset for deep learning (DL) models. However,
-                   collecting and annotating large scale 3D data for specific tasks remains costly and inefficient.
-                   To this end, the objective of this research is to design and develop a comprehensive and efficient framework for 3D
+                <p>In this work, we design and develop a comprehensive and efficient framework for 3D
                    segmentation tasks to assist in 3D data annotation. This framework integrates Grounding DINO (GDINO) and
                    Segment-anything Model (SAM), augmented by an enhancement in 2D image rendering via 3D mesh. Furthermore,
-                   the authors have also developed a user-friendly interface (UI) that facilitates the 3D annotation process, offering
-                   intuitive visualization of rendered images and the 3D point cloud. To evaluate the proposed annotation framework,
-                   outdoor scenes from collected by using unmanned aerial vehicles (UAVs) and indoor scenes collected by using
-                   NavVis VLX and RGB-D camera in USC-ICT office building were used to conduct comparative experiments between
-                   manual methods and the proposed framework, focusing on 3D segmentation efficiency and accuracy. The results
-                   demonstrate that our proposed framework surpasses manual methods in efficiency, enabling faster 3D annotation
-                   without compromising on accuracy. This indicates that the potential of the framework to streamline the annotation
-                   process, thereby facilitating the training of more advanced models capable of understanding complex 3D environments
-                   with satisfactory precision.
+                   we also developed a user-friendly interface (UI) that facilitates the 3D annotation process, offering
+                   intuitive visualization of rendered images and the 3D point cloud. 
                 </p>
             </div>
             <div class="project-card">
