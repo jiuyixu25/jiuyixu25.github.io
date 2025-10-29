@@ -118,12 +118,12 @@
             <img src="jiuyixu.jpg" alt="Jiuyi Xu" class="about-image">
             <div class="about-text">
                 <p>
-                    Jiuyi (Joey) Xu is a first-year Ph.D. student in Robotics at the Colorado School of Mines under the supervision of Dr. Yangming Shi. His research interests include, but are not limited to, generative AI 
-                    (e.g., image generation and generative reinforcement learning). He holds an M.S. in Computer Science from the University of Southern California and a B.E. in 
-                    Software Engineering from Dalian University of Technology. Previously, he was a student research assistant at USC’s Institute for Creative Technologies, 
+                    Jiuyi (Joey) Xu is a second-year Ph.D. student in Robotics at the Colorado School of Mines under the supervision of Dr. Yangming Shi. His research interests include, but are not limited to, generative AI 
+                    (e.g., image generation) and Vision-Language-Action models. He holds an M.S. in Computer Science from the University of Southern California and a B.E. in 
+                    Software Engineering from Dalian University of Technology. Previously, he was a student research intern at USC’s Institute for Creative Technologies, 
                     working on open-vocabulary object detection (OVOD) and open-vocabulary semantic segmentation (OVSS). Beyond research, Joey is an active peer reviewer for the 
-                    Journal of Computing in Civil Engineering and has contributed to multiple academic conferences. He is also a student member of IEEE, ACM, and ASCE. In his spare time, 
-                    he really likes working out and playing basketball.
+                    Journal of Computing in Civil Engineering and has contributed to multiple academic conferences/journals. He is also a student member of IEEE, ACM, and ASCE. In his spare time, 
+                    he really likes going to the gym and playing basketball.
                 </p>
             <div class="social-links">
                 <a href="https://scholar.google.com/citations?user=VA41e10AAAAJ&hl=en" target="_blank">Google Scholar</a> |
@@ -138,9 +138,12 @@
     <section class="section" id="publications">
         <h2>Publications</h2>
         <ul class="publication-list">
-            <li><strong>Xu, J.</strong>, Chen, M., Feng, A., Yu, Z., Shi, Y. (2024). "Open-Vocabulary High-Resolution 3D (OVHR3D) Data Segmentation and Annotation Framework." I/ITSEC 2024.</li>
+            <li><strong>Xu, J.</strong>, Jin, Q., Chen, M., Feng, A., Sui, Y., Shi, Y. (2025). "LowDiff: Efficient Diffusion Sampling with Low-Resolution Condition." Under Review.</li>
+            <li><strong>Xu, J.</strong>, Sanni, T., Liu, Z., Ye, Y., Lee, J., Song, W., Shi, Y. (2025). "To Shelter or Not To Shelter: Exploring the Influence of Different Modalities in Virtual Reality on Individuals' Tornado Mitigation Behaviors." Under Review.</li>
+            <li>Chen, M., Leal, L., Hu, Y., Liu, R., Xiong, B., Feng, A., <strong>Xu, J.</strong>, Shi, Y. (2025). "IDU: Incremental Dynamic Update of Existing 3D Virtual Environments with New Imagery Data." I/ITSEC 2025.</li>
+            <li>Liu, Z., <strong>Xu, J.</strong>, Suen, WK., Chen, M., Zou, Z., Shi, Y. (2025). "Egosafe: An Egocentric Camera-Based Method for Detecting Hazardous Objectives on Construction Sites." Automation in Construction.</li>
             <li>Chen, M., Lal, D., Yu, Z., <strong>Xu, J.</strong>, Feng, A., You, S., NURUNNABI, A. Shi, Y. (2024). "Large-Scale 3D Terrain Reconstruction Using 3D Gaussian Splatting for Visualization and Simulation." ISPRS.</li>
-            <li>Liu, Z., <strong>Xu, J.</strong>, Suen, WK., Chen, M., Zou, Z., Shi, Y. (2024). "Egosafe: An Egocentric Camera-Based Method for Detecting Hazardous Objectives on Construction Sites." Automation in Construction.</li>
+            <li><strong>Xu, J.</strong>, Chen, M., Feng, A., Yu, Z., Shi, Y. (2024). "Open-Vocabulary High-Resolution 3D (OVHR3D) Data Segmentation and Annotation Framework." I/ITSEC 2024.</li>
             <li>More publications coming soon...</li>
         </ul>
     </section>
@@ -150,18 +153,36 @@
         <h2>Projects</h2>
         <div class="project-container">
             <div class="project-card">
-                <img src="project1.jpg" alt="Project 1">
-                <h3>Image Generation</h3>
-                <p>Coming soon</p>
+                <img src="arch.pdf" alt="Project 1">
+                <h3>LowDiff</h3>
+                <p>Diffusion models have achieved remarkable success in image generation but their practical application is often hindered by the slow sampling speed. Prior efforts of improving efficiency primarily focus on compressing models or reducing the total number of denoising steps, largely neglecting the possibility to leverage multiple input resolutions in the generation process. In this work, we propose LowDiff, a novel and efficient diffusion framework based on a cascaded approach by generating increasingly higher resolution outputs. Besides, LowDiff employs a unified model to progressively refine images from low resolution to the desired resolution. With the proposed architecture design and generation techniques, we achieve comparable or even superior performance with much fewer high-resolution sampling steps. LowDiff is applicable to diffusion models in both pixel space and latent space. Extensive experiments on both conditional and unconditional generation tasks across CIFAR-10, FFHQ and ImageNet demonstrate the effectiveness and generality of our method. Results show over 50% throughput improvement across all datasets and settings while maintaining comparable or better quality. On unconditional CIFAR-10, LowDiff achieves an FID of 2.11 and IS of 9.87, while on conditional CIFAR-10, an FID of 1.94 and IS of 10.03. On FFHQ 64x64, LowDiff achieves an FID of 2.43, and on ImageNet 256x256, LowDiff built on LightningDiT-B/1 produces high-quality samples with a FID of 4.00 and an IS of 195.06, together with substantial efficiency gains.</p>
             </div>
             <div class="project-card">
-                <img src="project2.jpg" alt="Project 2">
-                <h3>Open-Vocabulary Object Detection and Semantic Segmentation</h3>
-                <p>Coming soon</p>
+                <img src="ovod_arch.jpg" alt="Project 2">
+                <h3>OVHR3D</h3>
+                <p>In the domain of the U.S. Army modeling and simulation (M&S), the availability of high-quality annotated 3D data is pivotal to create virtual environments for training and simulations. Traditional methodologies for 3D semantic/instance segmentation, such as KpConv, RandLA, Mask3D, etc., are designed to train on extensive labeled
+                   datasets to obtain satisfactory performance in practical tasks. This requirement presents a significant challenge, given
+                   the inherent scarcity of manually annotated 3D datasets, particularly for the military use cases. Recognizing this gap,
+                   our previous research leverages the One World Terrain (OWT) data repository’s manually annotated databases, as
+                   showcased at I/ITSEC 2019 and 2021, to enrich the training dataset for deep learning (DL) models. However,
+                   collecting and annotating large scale 3D data for specific tasks remains costly and inefficient.
+                   To this end, the objective of this research is to design and develop a comprehensive and efficient framework for 3D
+                   segmentation tasks to assist in 3D data annotation. This framework integrates Grounding DINO (GDINO) and
+                   Segment-anything Model (SAM), augmented by an enhancement in 2D image rendering via 3D mesh. Furthermore,
+                   the authors have also developed a user-friendly interface (UI) that facilitates the 3D annotation process, offering
+                   intuitive visualization of rendered images and the 3D point cloud. To evaluate the proposed annotation framework,
+                   outdoor scenes from collected by using unmanned aerial vehicles (UAVs) and indoor scenes collected by using
+                   NavVis VLX and RGB-D camera in USC-ICT office building were used to conduct comparative experiments between
+                   manual methods and the proposed framework, focusing on 3D segmentation efficiency and accuracy. The results
+                   demonstrate that our proposed framework surpasses manual methods in efficiency, enabling faster 3D annotation
+                   without compromising on accuracy. This indicates that the potential of the framework to streamline the annotation
+                   process, thereby facilitating the training of more advanced models capable of understanding complex 3D environments
+                   with satisfactory precision.
+                </p>
             </div>
             <div class="project-card">
                 <img src="project3.jpg" alt="Project 3">
-                <h3>Information Extraction & LLM</h3>
+                <h3>Generative AI in Building Simulation</h3>
                 <p>Coming soon</p>
             </div>
         </div>
@@ -178,6 +199,8 @@
             <li><strong>May 2024:</strong> Obtained a master's degree in Computer Science from the University of Southern California.</li>
             <li><strong>July 28th - 31st 2024:</strong> Presented "An Open-vocabulary Framework for Efficient 2D-3D Visual Data Annotation in Indoor and Outdoor Built Environment" at i3ce2024.</li>
             <li><strong>August 2024:</strong> Started the Ph.D. program in Robotics under the supervision of Dr. Yangming Shi at the Colorado School of Mines.</li>
+            <li><strong>April 24th 2025:</strong> Presented an IEEE-invited talk "Multiscale Conditional Diffusion on Image Generation​" in a CS-themed seminar held by Colorado School of Mines.</li>
+            <li><strong>August 2025:</strong> Obtained the 2025 ASCE Best Data Award.</li>
             <li>More updates coming soon...</li>
         </ul>
     </section>
