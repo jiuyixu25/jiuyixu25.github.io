@@ -160,17 +160,35 @@
             <div class="project-card">
                 <img src="lowdiff.jpg" alt="Project 1">
                 <h3>LowDiff</h3>
-                <p>In this work, we propose LowDiff, a novel and efficient diffusion framework based on a cascaded approach by generating increasingly higher resolution outputs. Besides, LowDiff employs a unified model to progressively refine images from low resolution to the desired resolution. With the proposed architecture design and generation techniques, we achieve comparable or even superior performance with much fewer high-resolution sampling steps. LowDiff is applicable to diffusion models in both pixel space and latent space.</p>
+                <p>In this work, we propose LowDiff, a novel and efficient diffusion framework based on a cascaded approach by generating increasingly higher resolution outputs. 
+                    Besides, LowDiff employs a unified model to progressively refine images from low resolution to the desired resolution. 
+                    With the proposed architecture design and generation techniques, we achieve comparable or even superior performance with much fewer high-resolution sampling 
+                    steps. LowDiff is applicable to diffusion models in both pixel space (e.g. EDM) and latent space (e.g., LightningDIT). 
+                    Extensive experiments on both conditional and unconditional generation tasks across CIFAR10, FFHQ64x64 and ImageNet256x256 demonstrate the effectiveness and 
+                    generality of our method. Results show over 50\% to 80\% throughput improvement across all datasets and settings while maintaining comparable or better quality.
+                </p>
             </div>
             <div class="project-card">
-                <img src="project4.jpg" alt="Project 4">
+                <img src="QuantVLA.jpg" alt="QuantVLA">
                 <h3>QuantVLA</h3>
-                <p>Coming soon</p>
+                <p>In this work, we present QuantVLA, the first comprehensive PTQ benchmark for VLA models. 
+                    We first provide a baseline benchmark using a unified naive round-to-nearest (RTN) uniform quantization method with numerous configurations. 
+                    Specifically, we evaluate weight-only (W3/W4/W8) and weight-activation (W4A8/W8A8) configurations in open-source VLA models across LIBERO and SIMPLER benchmarks. 
+                    In addition, we also conducted the benchmark for existing LLM quantization techniques (e.g., AWQ and SmoothQuant) on LLM backbones of VLA models. 
+                    Our results show that standard RTN configurations exhibit robust performance across a range of bit-widths, whereas more aggressive bit-width reduction leads to sharp, 
+                    model-dependent failure behaviors. We further observe that the LLM backbone and action head are particularly sensitive to quantization.
+                </p>
             </div>
             <div class="project-card">
-                <img src="project4.jpg" alt="Project 4">
+                <img src="FastVLA.jpg" alt="FastVLA">
                 <h3>FastVLA</h3>
-                <p>Coming soon</p>
+                <p>In this work, we introduce FastVLA, a training-free, instruction-aware, and temporally adaptive visual token compression framework for efficient VLA inference. 
+                    At each action step, FastVLA (1) estimates instruction-conditioned token importance via instruction-to-vision attention to better capture task-relevant 
+                    information, and (2) adaptively determines the compression rate by measuring importance-distribution uniformity using the inverse-Simpson effective-number 
+                    metric, calibrated online with a sliding-window scheme to produce step-dependent token budgets. 
+                    We evaluated FastVLA on three open-source VLA models, which are OpenVLA, OpenVLA-OFT, and CogACT, across the LIBERO and SIMPLER benchmarks. 
+                    Across both benchmarks, FastVLA reduced LLM-backbone FLOPs by 35 to 60\% and decreased action latency by 9 to 32\%, yielding a 1.11× to 1.46× speedup while maintaining task success. 
+                </p>
             </div>
         </div>
     </section>
