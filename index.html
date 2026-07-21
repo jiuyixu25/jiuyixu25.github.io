@@ -428,10 +428,12 @@ section[id]{scroll-margin-top:72px;}
         <div class="pbody">
           <h3>LowDiff</h3>
           <div class="tags"><span class="tag">Diffusion</span><span class="tag">Efficient Sampling</span><span class="tag">Image Generation</span></div>
-          <p>An efficient cascaded diffusion framework that progressively refines images from low to target
-          resolution with a single unified model, reaching comparable or better quality with far fewer
-          high-resolution sampling steps. Works in both pixel space (EDM) and latent space (LightningDiT),
-          delivering 50–80% throughput gains across CIFAR-10, FFHQ-64 and ImageNet-256.</p>
+          <p>A cascaded diffusion framework that generates increasingly higher-resolution outputs, but replaces
+          the usual stack of stage-specific models with a single unified model that progressively refines images
+          from low to target resolution. It reaches comparable or better quality with far fewer high-resolution
+          sampling steps and applies to both pixel-space and latent-space diffusion. Across CIFAR-10, FFHQ and
+          ImageNet (conditional and unconditional) it delivers 50–80% throughput gains — e.g. FID 1.94 on
+          conditional CIFAR-10 and FID 1.59 on ImageNet-256 (LightningDiT-XL/1) — while maintaining quality.</p>
         </div>
       </article>
 
@@ -440,10 +442,13 @@ section[id]{scroll-margin-top:72px;}
         <div class="pbody">
           <h3>FastVLA</h3>
           <div class="tags"><span class="tag">VLA</span><span class="tag">Token Compression</span><span class="tag">Training-Free</span></div>
-          <p>A training-free, instruction-aware, temporally adaptive visual-token compression framework for
-          efficient VLA inference. It scores tokens via instruction-to-vision attention and adapts the
-          compression rate online with an inverse-Simpson uniformity metric. Across OpenVLA, OpenVLA-OFT and
-          CogACT, it cuts backbone FLOPs by 35–60% and latency by 9–32% (1.11×–1.46× speedup) while keeping task success.</p>
+          <p>A training-free, instruction-aware, and temporally adaptive visual-token compression framework for
+          efficient closed-loop VLA inference. At each step it scores token importance via instruction-to-vision
+          attention and sets the compression rate from the importance-distribution uniformity, measured by an
+          inverse-Simpson metric with online sliding-window calibration. Across OpenVLA, OpenVLA-OFT and CogACT
+          on LIBERO and SIMPLER it reduces LLM-backbone FLOPs by 35–59% and action latency by 9–32%
+          (1.09×–1.46× speedup) while maintaining task success; on a physical Franka Research 3 robot it cuts
+          end-to-end latency by 20% (1.25× speedup) at comparable success.</p>
         </div>
       </article>
 
@@ -452,7 +457,7 @@ section[id]{scroll-margin-top:72px;}
       <div class="pbody">
         <h3>QuantVLA</h3>
         <div class="tags"><span class="tag">VLA</span><span class="tag">Quantization</span><span class="tag">PTQ Benchmark</span></div>
-        <p>The first comprehensive post-training quantization (PTQ) benchmark for VLA models, spanning weight-only (W3/W4/W8) and weight-activation (W4A4/W4A8/W8A8) settings across LIBERO, SIMPLER, CALVIN and VLABench, plus LLM techniques such as AWQ and SmoothQuant. It reveals that the LLM backbone and action head are especially sensitive, and that aggressive bit-widths (e.g. W4A4) trigger sharp, model-dependent collapse.</p>
+        <p>A benchmark that evaluates post-training quantization (PTQ) of VLA models entirely under closed-loop task success, arguing that action error alone is an insufficient proxy for deployment. It spans 7 VLA models, 4 simulation environments and 6 weight / weight-activation bit settings, covering both full-model quantization and fine-grained, component-wise sensitivity across the LLM backbone, vision encoder and action head. It further benchmarks off-the-shelf LLM quantization methods on the VLA backbone, measures inference latency and memory under real quantization kernels, and validates behavior on a physical robot.</p>
       </div>
     </article>
     </div>
