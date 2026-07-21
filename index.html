@@ -1,215 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jiuyi Xu's Homepage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background: #0044cc;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #002266;
-            padding: 10px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-        }
-        .about-container {
-            display: flex;
-            align-items: flex-start;
-            padding: 0 20px;
-        }
-        .about-image {
-            width: 200px;
-            height: auto;
-            margin-right: 20px;
-            border-radius: 10px;
-        }
-        .about-text {
-            flex: 1;
-            text-align: justify;
-        }
-        .social-links {
-            text-align: center;
-        }
-        .section {
-            padding: 50px 20px;
-        }
-        .section h2 {
-            text-align: center;
-            color: #0044cc;
-            font-size: 28px;
-        }
-        .about-list {
-            display: flex;
-            align-items: flex-start;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-        }
-        .publication-list, .news-list {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-        }
-        .publication-list li, .news-list li {
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
-        .project-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .project-card {
-            width: 300px;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .project-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .project-card h3 {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jiuyi Xu (徐久乙) — Robotics Ph.D. @ Colorado School of Mines</title>
+<meta name="description" content="Jiuyi (Joey) Xu is a Robotics Ph.D. student at the Colorado School of Mines working on Vision-Language-Action (VLA) models and efficient AI.">
+<meta name="author" content="Jiuyi Xu">
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jiuyi Xu (徐久乙) — Robotics Ph.D.">
+<meta property="og:description" content="Robotics Ph.D. student at the Colorado School of Mines. Research on Vision-Language-Action (VLA) models and efficient AI.">
+<meta property="og:url" content="https://jiuyixu25.github.io/">
+<meta property="og:image" content="https://jiuyixu25.github.io/jiuyixu.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Favicon: "JX" monogram, no external file needed -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2393233a'/%3E%3Ctext x='16' y='22' font-size='15' fill='white' font-family='Arial,sans-serif' text-anchor='middle' font-weight='700'%3EJX%3C/text%3E%3C/svg%3E">
+<style>
+/* ---------- Theme tokens ---------- */
+:root{
+  --bg:#ffffff; --bg-alt:#f6f7f9; --card:#ffffff;
+  --text:#1c2024; --text-soft:#5b6470;
+  --border:#e7e9ee; --accent:#93233a; --accent-strong:#761b2e;
+  --accent-soft:rgba(147,35,58,.10); --shadow:rgba(20,26,50,.07);
+  --nav-bg:rgba(255,255,255,.78);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1116; --bg-alt:#161a21; --card:#151a21;
+    --text:#e8eaed; --text-soft:#9aa3af;
+    --border:#242a33; --accent:#e0899b; --accent-strong:#eaa5b3;
+    --accent-soft:rgba(224,137,155,.14); --shadow:rgba(0,0,0,.45);
+    --nav-bg:rgba(14,17,22,.72);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --bg-alt:#161a21; --card:#151a21;
+  --text:#e8eaed; --text-soft:#9aa3af;
+  --border:#242a33; --accent:#e0899b; --accent-strong:#eaa5b3;
+  --accent-soft:rgba(224,137,155,.14); --shadow:rgba(0,0,0,.45);
+  --nav-bg:rgba(14,17,22,.72);
+}
+
+/* ---------- Base ---------- */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  transition:background .3s ease,color .3s ease;
+}
+a{color:var(--accent);text-decoration:none;}
+a:hover{color:var(--accent-strong);text-decoration:underline;}
+img{max-width:100%;display:block;}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px;}
+section{padding:64px 0 8px;}
+section:first-of-type{padding-top:40px;}
+
+/* ---------- Nav ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:var(--nav-bg);backdrop-filter:saturate(180%) blur(12px);
+  -webkit-backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{max-width:880px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-weight:700;font-size:16px;color:var(--text);display:flex;align-items:center;gap:9px;}
+.brand:hover{text-decoration:none;}
+.brand .mono{display:inline-flex;width:28px;height:28px;border-radius:7px;background:#a12a41;color:#fff;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-links a{color:var(--text-soft);font-size:14.5px;font-weight:500;padding:7px 11px;border-radius:8px;transition:color .2s,background .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--accent-strong);background:var(--accent-soft);text-decoration:none;}
+#theme-toggle{margin-left:6px;background:none;border:1px solid var(--border);color:var(--text-soft);width:34px;height:34px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s;}
+#theme-toggle:hover{color:var(--accent);border-color:var(--accent);}
+#theme-toggle svg{width:17px;height:17px;}
+
+/* ---------- Hero ---------- */
+.hero{display:flex;gap:34px;align-items:center;padding-top:52px;}
+.hero-photo{flex:0 0 auto;}
+.hero-photo img{width:158px;height:158px;border-radius:50%;object-fit:cover;border:3px solid var(--card);box-shadow:0 6px 26px var(--shadow);}
+.hero-body{flex:1;min-width:0;}
+.hero h1{margin:0 0 4px;font-size:33px;line-height:1.15;letter-spacing:-.02em;}
+.hero h1 .cn{font-size:20px;color:var(--text-soft);font-weight:600;margin-left:8px;letter-spacing:0;}
+.hero .role{margin:0 0 3px;font-size:17px;color:var(--text);font-weight:600;}
+.hero .affil{margin:0 0 14px;color:var(--text-soft);font-size:15.5px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;}
+.chip{font-size:12.5px;font-weight:600;color:var(--accent-strong);background:var(--accent-soft);padding:4px 11px;border-radius:999px;}
+.socials{display:flex;flex-wrap:wrap;gap:9px;}
+.socials a{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--text);background:var(--bg-alt);border:1px solid var(--border);padding:7px 13px;border-radius:9px;transition:transform .15s,border-color .2s,color .2s;}
+.socials a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none;transform:translateY(-2px);}
+.socials svg{width:16px;height:16px;fill:currentColor;}
+
+/* ---------- Section headings ---------- */
+.kicker{display:block;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+h2.title{margin:0 0 26px;font-size:26px;letter-spacing:-.01em;}
+.lead{color:var(--text-soft);}
+.about-text p{margin:0 0 14px;}
+
+/* ---------- Publications ---------- */
+.year-group{margin-bottom:26px;}
+.year-label{font-size:14px;font-weight:700;color:var(--text-soft);letter-spacing:.03em;margin:0 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+.pub{padding:13px 15px;border-radius:11px;margin-bottom:8px;transition:background .2s;}
+.pub:hover{background:var(--bg-alt);}
+.pub .pt{font-weight:600;color:var(--text);}
+.pub .pa{color:var(--text-soft);font-size:15px;}
+.pub .pa b{color:var(--text);font-weight:700;}
+.pub .meta{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:5px;}
+.venue{font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent-strong);}
+.status{font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:999px;background:var(--bg-alt);color:var(--text-soft);border:1px solid var(--border);}
+.pub-more{text-align:center;margin-top:14px;}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#fff;background:#a12a41;padding:9px 18px;border-radius:10px;transition:background .2s,transform .15s;}
+.btn:hover{background:#86233a;color:#fff;text-decoration:none;transform:translateY(-2px);}
+
+/* ---------- Projects ---------- */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 10px var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s;}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 28px var(--shadow);border-color:var(--accent);}
+.card-img{height:170px;background:linear-gradient(135deg,#93233a,#6b1f38);position:relative;}
+.card-img img{width:100%;height:100%;object-fit:cover;}
+.card-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;letter-spacing:.04em;}
+.card-body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1;}
+.card-body h3{margin:0 0 9px;font-size:18px;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px;}
+.tag{font-size:11.5px;font-weight:600;color:var(--text-soft);background:var(--bg-alt);border:1px solid var(--border);padding:2px 9px;border-radius:6px;}
+.card-body p{margin:0;font-size:14.5px;color:var(--text-soft);line-height:1.6;}
+
+/* ---------- QuantVLA results table ---------- */
+.results{margin-top:28px;}
+.results-head h3{margin:0 0 5px;font-size:18px;}
+.results-head p{margin:0 0 14px;color:var(--text-soft);font-size:14px;line-height:1.55;}
+.fail-key{color:#e5484d;font-weight:700;}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;-webkit-overflow-scrolling:touch;}
+.rtab{border-collapse:collapse;width:100%;min-width:680px;font-size:13.5px;}
+.rtab th,.rtab td{padding:8px 12px;text-align:center;border-bottom:1px solid var(--border);white-space:nowrap;}
+.rtab thead th{background:var(--bg-alt);font-weight:700;color:var(--text);}
+.rtab tbody th.grp{text-align:left;font-weight:700;background:var(--bg-alt);color:var(--text);border-right:1px solid var(--border);vertical-align:middle;}
+.rtab td.lbl{text-align:left;color:var(--text);}
+.rtab td.base{font-weight:700;}
+.rtab td.fail{color:#e5484d;font-weight:700;}
+.rtab tbody tr:hover td{background:var(--accent-soft);}
+.rtab tr.sep td,.rtab tr.sep th{border-top:2px solid var(--border);}
+.rtab tbody tr:last-child td{border-bottom:none;}
+
+/* ---------- News ---------- */
+.news{list-style:none;margin:0;padding:0;}
+.news li{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--border);}
+.news li:last-child{border-bottom:none;}
+.news .date{flex:0 0 auto;width:150px;font-size:13.5px;font-weight:600;color:var(--accent-strong);}
+.news .what{flex:1;font-size:15px;color:var(--text);}
+
+/* ---------- Contact ---------- */
+.contact-box{background:var(--bg-alt);border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center;}
+.contact-box p{margin:0 0 18px;color:var(--text-soft);}
+.contact-box .socials{justify-content:center;}
+
+/* ---------- Footer ---------- */
+footer{margin-top:60px;border-top:1px solid var(--border);padding:26px 0 34px;text-align:center;color:var(--text-soft);font-size:13.5px;}
+
+/* ---------- Responsive ---------- */
+@media (max-width:640px){
+  body{font-size:16px;}
+  .nav-links a{padding:6px 8px;font-size:13.5px;}
+  .brand span.full{display:none;}
+  .hero{flex-direction:column;text-align:center;gap:20px;padding-top:36px;}
+  .chips,.socials{justify-content:center;}
+  .hero h1{font-size:28px;}
+  .news li{flex-direction:column;gap:2px;}
+  .news .date{width:auto;}
+  section{padding:48px 0 4px;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none !important;}
+}
+/* offset for sticky nav when jumping to anchors */
+section[id]{scroll-margin-top:72px;}
+</style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Jiuyi Xu (徐久乙)'s Homepage</h1>
-    </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#news">News</a>
-    </nav>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        <h2>About</h2>
-        <div class="about-list">
-            <img src="jiuyixu.jpg" alt="Jiuyi Xu" class="about-image">
-            <div class="about-text">
-                <p>
-                    Jiuyi (Joey) Xu is a second-year Ph.D. student in Robotics at the Colorado School of Mines under the supervision of Dr. Yangming Shi. 
-                    His research interests include, but are not limited to, Vision-Language-Action (VLA) models, and efficient AI. 
-                    He holds an M.S. in Computer Science from the University of Southern California (USC) and a B.E. in Software Engineering from Dalian University of Technology (DLUT). 
-                    Previously, he was a student research intern at USC’s Institute for Creative Technologies, working on projects related to open-vocabulary object detection (OVOD) and open-vocabulary semantic segmentation (OVSS). 
-                    Beyond research, Joey is an active peer reviewer for the Journal of Computing in Civil Engineering and has contributed to multiple academic conferences/journals.  
-                    In his spare time, he really likes going to the gym and playing basketball.
-                </p>
-            <div class="social-links">
-                <a href="https://scholar.google.com/citations?user=VA41e10AAAAJ&hl=en" target="_blank">Google Scholar</a> |
-                <a href="https://www.linkedin.com/in/jiuyi-xu-063434297/" target="_blank">LinkedIn</a> |
-                <a href="https://github.com/jiuyixu25" target="_blank">GitHub</a>
-            </div>
-            </div>
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="mono">JX</span><span class="full">Jiuyi Xu</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <button id="theme-toggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <!-- ===== Hero / About ===== -->
+  <section id="about">
+    <div class="hero">
+      <div class="hero-photo">
+        <img src="jiuyixu.jpg" alt="Jiuyi Xu">
+      </div>
+      <div class="hero-body">
+        <h1>Jiuyi (Joey) Xu<span class="cn">徐久乙</span></h1>
+        <p class="role">Ph.D. Student in Robotics</p>
+        <p class="affil">Colorado School of Mines · Advised by Dr. Yangming Shi</p>
+        <div class="chips">
+          <span class="chip">Vision-Language-Action (VLA)</span>
+          <span class="chip">Efficient AI</span>
+          <span class="chip">Robot Learning</span>
+          <span class="chip">Diffusion Models</span>
+          <span class="chip">Open-Vocabulary Perception</span>
         </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section class="section" id="publications">
-        <h2>Publications</h2>
-        <ul class="publication-list">
-            <li><strong>Xu, J.</strong>, Jin, Q., Chen, M., Feng, A., Sui, Y., Shi, Y. (2025). "LowDiff: Efficient Diffusion Sampling with Low-Resolution Condition." Under Review.</li>
-            <li>Vahidi, M., <strong>Xu, J.</strong>, Shi, Y., & Liu, K. (2025). "Domain Knowledge-Infused Prompting for Deep and Full-Sentence Information Extraction from Bridge Inspection Reports." Under Review.</li>
-            <li><strong>Xu, J.</strong>, Sanni, T., Liu, Z., Ye, Y., Lee, J., Song, W., Shi, Y. (2025). "To Shelter or Not To Shelter: Exploring the Influence of Different Modalities in Virtual Reality on Individuals' Tornado Mitigation Behaviors." Under Review.</li>
-            <li><strong>Xu, J.</strong>, Kim, R., Ye, Y., & Shi, Y. (2025). "An Autoregressive-based Framework for Simulating Stochastic Occupant Behavior in Residential Buildings." Building Simulation.</li>
-            <li><strong>Xu, J.</strong>, Chen, M., & Shi, Y. (2025). "GenVision: Enhancing Construction Safety Monitoring with Synthetic Image Generation." Winter Simulation Conference 2025.</li>
-            <li>Chen, M., Leal, L., Hu, Y., Liu, R., Xiong, B., Feng, A., <strong>Xu, J.</strong>, Shi, Y. (2025). "IDU: Incremental Dynamic Update of Existing 3D Virtual Environments with New Imagery Data." I/ITSEC 2025.</li>
-            <li>Liu, Z., <strong>Xu, J.</strong>, Suen, WK., Chen, M., Zou, Z., Shi, Y. (2025). "Egosafe: An Egocentric Camera-Based Method for Detecting Hazardous Objectives on Construction Sites." Automation in Construction.</li>
-            <li>Rahman, M.A., <strong>Xu, J.</strong>, Liu, Z., Chen, M., Zhu, R., Liu, Y., Shi, Y., & Feng, A. (2024). "An Open Vocabulary Framework for Efficient 2D and 3D Visual Data Annotation in Indoor and Outdoor Built Environments." i3ce 2024.</li>
-            <li>Liu, Z., <strong>Xu, J.</strong>, Suen, W.K., Chen, M., Zou, Z., Feng, A., & Shi, Y. (2024). "Detecting without Training: An Open-Vocabulary Object Detection Method for Identifying Hazardous Objects on Construction Sites." i3ce 2024.</li>
-            <li>Chen, M., Lal, D., Yu, Z., <strong>Xu, J.</strong>, Feng, A., You, S., NURUNNABI, A. Shi, Y. (2024). "Large-Scale 3D Terrain Reconstruction Using 3D Gaussian Splatting for Visualization and Simulation." ISPRS.</li>
-            <li><strong>Xu, J.</strong>, Chen, M., Feng, A., Yu, Z., Shi, Y. (2024). "Open-Vocabulary High-Resolution 3D (OVHR3D) Data Segmentation and Annotation Framework." I/ITSEC 2024.</li>
-            <li>More publications coming soon...</li>
-        </ul>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section" id="projects">
-        <h2>Projects</h2>
-        <div class="project-container">
-            <div class="project-card">
-                <img src="lowdiff.jpg" alt="Project 1">
-                <h3>LowDiff</h3>
-                <p>In this work, we propose LowDiff, a novel and efficient diffusion framework based on a cascaded approach by generating increasingly higher resolution outputs. 
-                    Besides, LowDiff employs a unified model to progressively refine images from low resolution to the desired resolution. 
-                    With the proposed architecture design and generation techniques, we achieve comparable or even superior performance with much fewer high-resolution sampling 
-                    steps. LowDiff is applicable to diffusion models in both pixel space (e.g. EDM) and latent space (e.g., LightningDIT). 
-                    Extensive experiments on both conditional and unconditional generation tasks across CIFAR10, FFHQ64x64 and ImageNet256x256 demonstrate the effectiveness and 
-                    generality of our method. Results show over 50\% to 80\% throughput improvement across all datasets and settings while maintaining comparable or better quality.
-                </p>
-            </div>
-            <div class="project-card">
-                <img src="QuantVLA.jpg" alt="QuantVLA">
-                <h3>QuantVLA</h3>
-                <p>In this work, we present QuantVLA, the first comprehensive PTQ benchmark for VLA models. 
-                    We first provide a baseline benchmark using a unified naive round-to-nearest (RTN) uniform quantization method with numerous configurations. 
-                    Specifically, we evaluate weight-only (W3/W4/W8) and weight-activation (W4A8/W8A8) configurations in open-source VLA models across LIBERO and SIMPLER benchmarks. 
-                    In addition, we also conducted the benchmark for existing LLM quantization techniques (e.g., AWQ and SmoothQuant) on LLM backbones of VLA models. 
-                    Our results show that standard RTN configurations exhibit robust performance across a range of bit-widths, whereas more aggressive bit-width reduction leads to sharp, 
-                    model-dependent failure behaviors. We further observe that the LLM backbone and action head are particularly sensitive to quantization.
-                </p>
-            </div>
-            <div class="project-card">
-                <img src="FastVLA.jpg" alt="FastVLA">
-                <h3>FastVLA</h3>
-                <p>In this work, we introduce FastVLA, a training-free, instruction-aware, and temporally adaptive visual token compression framework for efficient VLA inference. 
-                    At each action step, FastVLA (1) estimates instruction-conditioned token importance via instruction-to-vision attention to better capture task-relevant 
-                    information, and (2) adaptively determines the compression rate by measuring importance-distribution uniformity using the inverse-Simpson effective-number 
-                    metric, calibrated online with a sliding-window scheme to produce step-dependent token budgets. 
-                    We evaluated FastVLA on three open-source VLA models, which are OpenVLA, OpenVLA-OFT, and CogACT, across the LIBERO and SIMPLER benchmarks. 
-                    Across both benchmarks, FastVLA reduced LLM-backbone FLOPs by 35 to 60\% and decreased action latency by 9 to 32\%, yielding a 1.11× to 1.46× speedup while maintaining task success. 
-                </p>
-            </div>
+        <div class="socials">
+          <a href="mailto:jiuyixjiuyi@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>Email
+          </a>
+          <a href="https://scholar.google.com/citations?user=VA41e10AAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+            <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v3.82L12 21l7-4v-3.82l-7 3.82-7-3.82z"/></svg>Scholar
+          </a>
+          <a href="https://www.linkedin.com/in/jiuyi-xu-063434297/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.9H5.67v8.44h2.67zM7 8.67a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.67v-4.63c0-2.48-1.32-3.63-3.09-3.63a2.67 2.67 0 0 0-2.42 1.33v-1.14H10.16c.03.75 0 8.44 0 8.44h2.67v-4.71c0-.25.02-.5.09-.68.2-.5.66-1.02 1.42-1.02.99 0 1.39.76 1.39 1.87v4.54h2.61z"/></svg>LinkedIn
+          </a>
+          <a href="https://github.com/jiuyixu25" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.26-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.38.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>GitHub
+          </a>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- News Section -->
-    <section class="section" id="news">
-        <h2>News</h2>
-        <ul class="news-list">
-            <li><strong>December 7th - 10th 2025:</strong> Presented "GenVision: Enhancing Construction Safety Monitoring with Synthetic Image Generation" at WSC 2025.</li>
-            <li><strong>August 2025:</strong> Obtained the 2025 ASCE Best Data Award.</li>
-            <li><strong>April 24th 2025:</strong> Presented an IEEE-invited talk "Multiscale Conditional Diffusion on Image Generation​" in a CS-themed seminar held by Colorado School of Mines.</li>
-            <li><strong>August 2024:</strong> Started the Ph.D. program in Robotics under the supervision of Dr. Yangming Shi at the Colorado School of Mines.</li>
-            <li><strong>July 28th - 31st 2024:</strong> Presented "An Open-vocabulary Framework for Efficient 2D-3D Visual Data Annotation in Indoor and Outdoor Built Environment" at i3ce 2024.</li>
-            <li><strong>May 2024:</strong> Obtained a master's degree in Computer Science from the University of Southern California.</li>
-            <li><strong>February 11th - 13th 2024:</strong> Presented "A Hybrid 2D-3D Zero-shot Framework for Photogrammetric Data Segmentation" at Geo Week 2024.</li>
-            <li><strong>November 27th - December 1st 2023:</strong> Presented "USC-ICT Semantic Terrain Points Labeling System" at I/ITSEC 2023.</li>
-            <li><strong>May 2023:</strong> Started as a student research intern at USC-ICT within the Geospatial Terrain Research group under the supervision of Dr. Meida Chen.</li>
-            <li><strong>August 2022:</strong> Started the Master program in Computer Science at the University of Southern California.</li>
-            <li>More updates coming soon...</li>
-        </ul>
-    </section>
+    <div class="about-text" style="margin-top:34px;">
+      <span class="kicker">About</span>
+      <p>
+        Jiuyi (Joey) Xu is a second-year Ph.D. student in Robotics at the Colorado School of Mines,
+        advised by Dr. Yangming Shi. His research centers on <b>Vision-Language-Action (VLA) models</b>
+        and <b>efficient AI</b>. He holds an M.S. in Computer Science from the University of Southern
+        California (USC) and a B.E. in Software Engineering from Dalian University of Technology (DLUT).
+      </p>
+      <p>
+        Previously, he was a student research intern at USC's Institute for Creative Technologies (ICT),
+        working on open-vocabulary object detection (OVOD) and open-vocabulary semantic segmentation (OVSS).
+        He serves as a peer reviewer for the <i>Journal of Computing in Civil Engineering</i> and several
+        academic conferences and journals. Outside of research, he enjoys going to the gym and playing basketball.
+      </p>
+    </div>
+  </section>
 
+  <!-- ===== Publications ===== -->
+  <section id="publications">
+    <span class="kicker">Research</span>
+    <h2 class="title">Publications</h2>
+
+    <div class="year-group">
+      <p class="year-label">2025</p>
+
+      <div class="pub">
+        <div class="pt">LowDiff: Efficient Diffusion Sampling with Low-Resolution Condition</div>
+        <div class="pa"><b>Xu, J.</b>, Jin, Q., Chen, M., Feng, A., Sui, Y., Shi, Y.</div>
+        <div class="meta"><span class="status">Under Review</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">Domain Knowledge-Infused Prompting for Deep and Full-Sentence Information Extraction from Bridge Inspection Reports</div>
+        <div class="pa">Vahidi, M., <b>Xu, J.</b>, Shi, Y., Liu, K.</div>
+        <div class="meta"><span class="status">Under Review</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">To Shelter or Not To Shelter: Exploring the Influence of Different Modalities in Virtual Reality on Individuals' Tornado Mitigation Behaviors</div>
+        <div class="pa"><b>Xu, J.</b>, Sanni, T., Liu, Z., Ye, Y., Lee, J., Song, W., Shi, Y.</div>
+        <div class="meta"><span class="status">Under Review</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">An Autoregressive-based Framework for Simulating Stochastic Occupant Behavior in Residential Buildings</div>
+        <div class="pa"><b>Xu, J.</b>, Kim, R., Ye, Y., Shi, Y.</div>
+        <div class="meta"><span class="venue">Building Simulation</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">GenVision: Enhancing Construction Safety Monitoring with Synthetic Image Generation</div>
+        <div class="pa"><b>Xu, J.</b>, Chen, M., Shi, Y.</div>
+        <div class="meta"><span class="venue">Winter Simulation Conference 2025</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">IDU: Incremental Dynamic Update of Existing 3D Virtual Environments with New Imagery Data</div>
+        <div class="pa">Chen, M., Leal, L., Hu, Y., Liu, R., Xiong, B., Feng, A., <b>Xu, J.</b>, Shi, Y.</div>
+        <div class="meta"><span class="venue">I/ITSEC 2025</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">Egosafe: An Egocentric Camera-Based Method for Detecting Hazardous Objectives on Construction Sites</div>
+        <div class="pa">Liu, Z., <b>Xu, J.</b>, Suen, W.K., Chen, M., Zou, Z., Shi, Y.</div>
+        <div class="meta"><span class="venue">Automation in Construction</span></div>
+      </div>
+    </div>
+
+    <div class="year-group">
+      <p class="year-label">2024</p>
+
+      <div class="pub">
+        <div class="pt">An Open Vocabulary Framework for Efficient 2D and 3D Visual Data Annotation in Indoor and Outdoor Built Environments</div>
+        <div class="pa">Rahman, M.A., <b>Xu, J.</b>, Liu, Z., Chen, M., Zhu, R., Liu, Y., Shi, Y., Feng, A.</div>
+        <div class="meta"><span class="venue">i3ce 2024</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">Detecting without Training: An Open-Vocabulary Object Detection Method for Identifying Hazardous Objects on Construction Sites</div>
+        <div class="pa">Liu, Z., <b>Xu, J.</b>, Suen, W.K., Chen, M., Zou, Z., Feng, A., Shi, Y.</div>
+        <div class="meta"><span class="venue">i3ce 2024</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">Large-Scale 3D Terrain Reconstruction Using 3D Gaussian Splatting for Visualization and Simulation</div>
+        <div class="pa">Chen, M., Lal, D., Yu, Z., <b>Xu, J.</b>, Feng, A., You, S., Nurunnabi, A., Shi, Y.</div>
+        <div class="meta"><span class="venue">ISPRS</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">Open-Vocabulary High-Resolution 3D (OVHR3D) Data Segmentation and Annotation Framework</div>
+        <div class="pa"><b>Xu, J.</b>, Chen, M., Feng, A., Yu, Z., Shi, Y.</div>
+        <div class="meta"><span class="venue">I/ITSEC 2024</span></div>
+      </div>
+    </div>
+
+    <div class="pub-more">
+      <a class="btn" href="https://scholar.google.com/citations?user=VA41e10AAAAJ&hl=en" target="_blank" rel="noopener">
+        View all on Google Scholar →
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects">
+    <span class="kicker">Selected Work</span>
+    <h2 class="title">Projects</h2>
+    <div class="projects">
+
+      <div class="card">
+        <div class="card-img"><img src="lowdiff.jpg" alt="LowDiff" onerror="this.remove()"><div class="ph">LowDiff</div></div>
+        <div class="card-body">
+          <h3>LowDiff</h3>
+          <div class="tags"><span class="tag">Diffusion</span><span class="tag">Efficient Sampling</span><span class="tag">Image Generation</span></div>
+          <p>An efficient cascaded diffusion framework that progressively refines images from low to target
+          resolution with a single unified model, reaching comparable or better quality with far fewer
+          high-resolution sampling steps. Works in both pixel space (EDM) and latent space (LightningDiT),
+          delivering 50–80% throughput gains across CIFAR-10, FFHQ-64 and ImageNet-256.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><div class="ph">QuantVLA</div></div>
+        <div class="card-body">
+          <h3>QuantVLA</h3>
+          <div class="tags"><span class="tag">VLA</span><span class="tag">Quantization</span><span class="tag">PTQ Benchmark</span></div>
+          <p>The first comprehensive post-training quantization (PTQ) benchmark for VLA models, spanning
+          weight-only (W3/W4/W8) and weight-activation (W4A4/W4A8/W8A8) settings across LIBERO, SIMPLER,
+          CALVIN and VLABench, plus LLM techniques such as AWQ and SmoothQuant. It reveals that the LLM
+          backbone and action head are especially sensitive, and that aggressive bit-widths (e.g. W4A4)
+          trigger sharp, model-dependent collapse &mdash; see the results table below.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="FastVLA.jpg" alt="FastVLA" onerror="this.remove()"><div class="ph">FastVLA</div></div>
+        <div class="card-body">
+          <h3>FastVLA</h3>
+          <div class="tags"><span class="tag">VLA</span><span class="tag">Token Compression</span><span class="tag">Training-Free</span></div>
+          <p>A training-free, instruction-aware, temporally adaptive visual-token compression framework for
+          efficient VLA inference. It scores tokens via instruction-to-vision attention and adapts the
+          compression rate online with an inverse-Simpson uniformity metric. Across OpenVLA, OpenVLA-OFT and
+          CogACT, it cuts backbone FLOPs by 35–60% and latency by 9–32% (1.11×–1.46× speedup) while keeping task success.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="results" id="quantvla-results">
+      <div class="results-head">
+        <h3>QuantVLA &mdash; Main Results</h3>
+        <p>Task performance across post-training quantization settings (Success Rate, SR&nbsp;%, unless a different metric is noted). <span class="fail-key">0.0</span> marks catastrophic collapse &mdash; most visible under the aggressive W4A4 setting.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="rtab">
+          <thead>
+            <tr>
+              <th rowspan="2">Benchmark</th><th rowspan="2">Model</th><th rowspan="2">Metric</th>
+              <th colspan="7">Quantization Setting</th>
+            </tr>
+            <tr>
+              <th>Baseline</th><th>W3</th><th>W4</th><th>W8</th><th>W4A4</th><th>W4A8</th><th>W8A8</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="sep">
+              <th rowspan="5" class="grp">LIBERO</th>
+              <td class="lbl">OpenVLA-OFT</td><td>SR (%)</td>
+              <td class="base">96.9</td><td>94.2</td><td>96.4</td><td>96.4</td><td class="fail">0.0</td><td>93.8</td><td>96.2</td>
+            </tr>
+            <tr>
+              <td class="lbl">&pi;<sub>0</sub></td><td>SR (%)</td>
+              <td class="base">73.7</td><td>68.1</td><td>72.4</td><td>74.9</td><td class="fail">0.0</td><td>61.5</td><td>72.9</td>
+            </tr>
+            <tr>
+              <td class="lbl">&pi;<sub>0.5</sub></td><td>SR (%)</td>
+              <td class="base">97.7</td><td>97.5</td><td>97.6</td><td>97.5</td><td class="fail">0.0</td><td>97.2</td><td>97.4</td>
+            </tr>
+            <tr>
+              <td class="lbl">InternVLA-M1</td><td>SR (%)</td>
+              <td class="base">95.6</td><td class="fail">0.0</td><td>94.9</td><td>95.5</td><td class="fail">0.0</td><td>75.8</td><td>95.7</td>
+            </tr>
+            <tr>
+              <td class="lbl">X-VLA</td><td>SR (%)</td>
+              <td class="base">97.6</td><td>96.5</td><td>98.1</td><td>97.5</td><td class="fail">0.0</td><td>97.4</td><td>97.7</td>
+            </tr>
+            <tr class="sep">
+              <th rowspan="2" class="grp">SIMPLER-VM</th>
+              <td class="lbl">CogAct</td><td>SR (%)</td>
+              <td class="base">73.8</td><td>75.9</td><td>66.6</td><td>74.0</td><td class="fail">0.0</td><td>69.6</td><td>72.2</td>
+            </tr>
+            <tr>
+              <td class="lbl">X-VLA</td><td>SR (%)</td>
+              <td class="base">78.4</td><td>72.5</td><td>78.6</td><td>75.6</td><td class="fail">0.0</td><td>74.3</td><td>76.0</td>
+            </tr>
+            <tr class="sep">
+              <th rowspan="2" class="grp">SIMPLER-VA</th>
+              <td class="lbl">CogAct</td><td>SR (%)</td>
+              <td class="base">69.9</td><td>60.2</td><td>67.6</td><td>70.3</td><td class="fail">0.0</td><td>68.8</td><td>67.8</td>
+            </tr>
+            <tr>
+              <td class="lbl">X-VLA</td><td>SR (%)</td>
+              <td class="base">73.1</td><td>73.5</td><td>72.4</td><td>73.3</td><td class="fail">0.0</td><td>70.6</td><td>73.1</td>
+            </tr>
+            <tr class="sep">
+              <th class="grp">CALVIN ABC&rarr;D</th>
+              <td class="lbl">X-VLA</td><td>Avg. Len.</td>
+              <td class="base">4.28</td><td>4.12</td><td>4.21</td><td>4.31</td><td class="fail">0.0</td><td>4.25</td><td>4.27</td>
+            </tr>
+            <tr class="sep">
+              <th class="grp">VLABench</th>
+              <td class="lbl">X-VLA</td><td>Avg. PS</td>
+              <td class="base">34.5</td><td>34.7</td><td>33.3</td><td>34.4</td><td>2.6</td><td>33.0</td><td>33.6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== News ===== -->
+  <section id="news">
+    <span class="kicker">Updates</span>
+    <h2 class="title">News</h2>
+    <ul class="news">
+      <li><span class="date">Dec 7–10, 2025</span><span class="what">Presented "GenVision: Enhancing Construction Safety Monitoring with Synthetic Image Generation" at WSC 2025.</span></li>
+      <li><span class="date">Aug 2025</span><span class="what">Received the 2025 ASCE Best Data Award.</span></li>
+      <li><span class="date">Apr 24, 2025</span><span class="what">Gave an IEEE-invited talk "Multiscale Conditional Diffusion on Image Generation" at a CS seminar, Colorado School of Mines.</span></li>
+      <li><span class="date">Aug 2024</span><span class="what">Began the Ph.D. program in Robotics under Dr. Yangming Shi at the Colorado School of Mines.</span></li>
+      <li><span class="date">Jul 28–31, 2024</span><span class="what">Presented "An Open-Vocabulary Framework for Efficient 2D–3D Visual Data Annotation in Indoor and Outdoor Built Environments" at i3ce 2024.</span></li>
+      <li><span class="date">May 2024</span><span class="what">Earned an M.S. in Computer Science from the University of Southern California.</span></li>
+      <li><span class="date">Feb 11–13, 2024</span><span class="what">Presented "A Hybrid 2D–3D Zero-shot Framework for Photogrammetric Data Segmentation" at Geo Week 2024.</span></li>
+      <li><span class="date">Nov 27–Dec 1, 2023</span><span class="what">Presented "USC-ICT Semantic Terrain Points Labeling System" at I/ITSEC 2023.</span></li>
+      <li><span class="date">May 2023</span><span class="what">Started as a student research intern at USC-ICT (Geospatial Terrain Research) under Dr. Meida Chen.</span></li>
+      <li><span class="date">Aug 2022</span><span class="what">Began the M.S. in Computer Science at the University of Southern California.</span></li>
+    </ul>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact">
+    <span class="kicker">Get in touch</span>
+    <h2 class="title">Contact</h2>
+    <div class="contact-box">
+      <p>Happy to chat about VLA models, efficient AI, or potential collaborations.</p>
+      <div class="socials">
+        <a href="mailto:jiuyixjiuyi@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>jiuyixjiuyi@gmail.com
+        </a>
+        <a href="https://scholar.google.com/citations?user=VA41e10AAAAJ&hl=en" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v3.82L12 21l7-4v-3.82l-7 3.82-7-3.82z"/></svg>Google Scholar
+        </a>
+        <a href="https://www.linkedin.com/in/jiuyi-xu-063434297/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.9H5.67v8.44h2.67zM7 8.67a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.67v-4.63c0-2.48-1.32-3.63-3.09-3.63a2.67 2.67 0 0 0-2.42 1.33v-1.14H10.16c.03.75 0 8.44 0 8.44h2.67v-4.71c0-.25.02-.5.09-.68.2-.5.66-1.02 1.42-1.02.99 0 1.39.76 1.39 1.87v4.54h2.61z"/></svg>LinkedIn
+        </a>
+        <a href="https://github.com/jiuyixu25" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.26-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.38.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Jiuyi Xu (徐久乙) · Built with plain HTML, hosted on GitHub Pages
+  </footer>
+
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme-toggle');
+  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+  function effective(){var a=root.getAttribute('data-theme');if(a)return a;return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+  function paint(){btn.innerHTML=effective()==='dark'?SUN:MOON;}
+  var saved=localStorage.getItem('theme');if(saved)root.setAttribute('data-theme',saved);
+  paint();
+  btn.addEventListener('click',function(){var next=effective()==='dark'?'light':'dark';root.setAttribute('data-theme',next);localStorage.setItem('theme',next);paint();});
+
+  // Active nav link on scroll
+  var links=[].slice.call(document.querySelectorAll('.nav-links a'));
+  var map={};links.forEach(function(l){var id=l.getAttribute('href');if(id&&id.indexOf('#')===0&&id.length>1)map[id.slice(1)]=l;});
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove('active');});if(map[e.target.id])map[e.target.id].classList.add('active');}});
+    },{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){obs.observe(s);});
+  }
+})();
+</script>
 </body>
 </html>
