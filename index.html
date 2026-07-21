@@ -87,6 +87,7 @@ nav{
 .hero .affil{margin:0 0 14px;color:var(--text-soft);font-size:15.5px;}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;}
 .chip{font-size:12.5px;font-weight:600;color:var(--accent-strong);background:var(--accent-soft);padding:4px 11px;border-radius:999px;}
+.chip-break{flex-basis:100%;height:0;margin:0;padding:0;}
 .socials{display:flex;flex-wrap:wrap;gap:9px;}
 .socials a{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--text);background:var(--bg-alt);border:1px solid var(--border);padding:7px 13px;border-radius:9px;transition:transform .15s,border-color .2s,color .2s;}
 .socials a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none;transform:translateY(-2px);}
@@ -113,37 +114,20 @@ h2.title{margin:0 0 26px;font-size:26px;letter-spacing:-.01em;}
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#fff;background:#a12a41;padding:9px 18px;border-radius:10px;transition:background .2s,transform .15s;}
 .btn:hover{background:#86233a;color:#fff;text-decoration:none;transform:translateY(-2px);}
 
-/* ---------- Projects ---------- */
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 10px var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s;}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 28px var(--shadow);border-color:var(--accent);}
-.card-img{height:170px;background:linear-gradient(135deg,#93233a,#6b1f38);position:relative;}
-.card-img img{width:100%;height:100%;object-fit:cover;}
-.card-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;letter-spacing:.04em;}
-.card-body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1;}
-.card-body h3{margin:0 0 9px;font-size:18px;}
+/* ---------- Projects (uniform full-width cards, one per row) ---------- */
+.projects-list{display:flex;flex-direction:column;gap:20px;}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px var(--shadow);transition:border-color .2s,box-shadow .2s;}
+.pcard:hover{border-color:var(--accent);box-shadow:0 10px 26px var(--shadow);}
+.pfig{background:var(--bg-alt);border-bottom:1px solid var(--border);position:relative;}
+.pfig.img{height:300px;display:flex;align-items:center;justify-content:center;padding:18px;}
+.pfig.img img{max-width:100%;max-height:100%;width:auto;object-fit:contain;border-radius:6px;}
+.pfig-ph{display:none;position:absolute;inset:0;align-items:center;justify-content:center;color:var(--text-soft);font-weight:700;font-size:20px;letter-spacing:.04em;}
+.pfig.noimg .pfig-ph{display:flex;}
+.pbody{padding:18px 18px 20px;}
+.pbody h3{margin:0 0 9px;font-size:19px;}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px;}
 .tag{font-size:11.5px;font-weight:600;color:var(--text-soft);background:var(--bg-alt);border:1px solid var(--border);padding:2px 9px;border-radius:6px;}
-.card-body p{margin:0;font-size:14.5px;color:var(--text-soft);line-height:1.6;}
-
-/* ---------- QuantVLA featured card + results table ---------- */
-.card.featured{margin-bottom:20px;}
-.card.featured:hover{transform:none;box-shadow:0 2px 10px var(--shadow);border-color:var(--border);}
-.feat-fig{padding:18px 18px 8px;background:var(--bg-alt);border-bottom:1px solid var(--border);}
-.feat-fig .table-wrap{background:var(--card);}
-.fig-cap{margin:11px 2px 2px;font-size:12.5px;color:var(--text-soft);line-height:1.5;}
-.fail-key{color:#e5484d;font-weight:700;}
-.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;-webkit-overflow-scrolling:touch;}
-.rtab{border-collapse:collapse;width:100%;min-width:680px;font-size:13.5px;}
-.rtab th,.rtab td{padding:8px 12px;text-align:center;border-bottom:1px solid var(--border);white-space:nowrap;}
-.rtab thead th{background:var(--bg-alt);font-weight:700;color:var(--text);}
-.rtab tbody th.grp{text-align:left;font-weight:700;background:var(--bg-alt);color:var(--text);border-right:1px solid var(--border);vertical-align:middle;}
-.rtab td.lbl{text-align:left;color:var(--text);}
-.rtab td.base{font-weight:700;}
-.rtab td.fail{color:#e5484d;font-weight:700;}
-.rtab tbody tr:hover td{background:var(--accent-soft);}
-.rtab tr.sep td,.rtab tr.sep th{border-top:2px solid var(--border);}
-.rtab tbody tr:last-child td{border-bottom:none;}
+.pbody p{margin:0;font-size:14.5px;color:var(--text-soft);line-height:1.6;}
 
 /* ---------- News ---------- */
 .news{list-style:none;margin:0;padding:0;}
@@ -232,11 +216,11 @@ section[id]{scroll-margin-top:72px;}
         <p class="role">Ph.D. Student in Robotics</p>
         <p class="affil">Colorado School of Mines, Golden CO · Advised by Dr. Yangming Shi</p>
         <div class="chips">
-          <span class="chip">Vision-Language-Action (VLA)</span>
           <span class="chip">Efficient AI</span>
           <span class="chip">Robot Learning</span>
-          <span class="chip">Diffusion Models</span>
-          <span class="chip">Open-Vocabulary Perception</span>
+          <span class="chip-break"></span>
+          <span class="chip">Vision-Language-Action (VLA)</span>
+          <span class="chip">World-Action Model (WAM)</span>
         </div>
         <div class="socials">
           <a class="primary" href="Jiuyi_Xu_CV.pdf" target="_blank" rel="noopener" aria-label="Download CV">
@@ -354,7 +338,7 @@ section[id]{scroll-margin-top:72px;}
       <div class="pub">
         <div class="pt">Domain Knowledge-Infused Prompting for Deep and Full-Sentence Information Extraction from Bridge Inspection Reports</div>
         <div class="pa">Vahidi, M., <b>Xu, J.</b>, Shi, Y., Liu, K.</div>
-        <div class="meta"><span class="status">Preprint</span></div>
+        <div class="meta"><span class="venue">Journal of Computing in Civil Engineering</span></div>
       </div>
 
       <div class="pub">
@@ -382,7 +366,7 @@ section[id]{scroll-margin-top:72px;}
       <div class="pub">
         <div class="pt">IDU: Incremental Dynamic Update of Existing 3D Virtual Environments with New Imagery Data</div>
         <div class="pa">Chen, M., Leal, L., Hu, Y., Liu, R., Xiong, B., Feng, A., <b>Xu, J.</b>, Shi, Y.</div>
-        <div class="meta"><span class="status">Preprint</span><a class="plink" href="https://arxiv.org/abs/2508.17579" target="_blank" rel="noopener">arXiv ↗</a></div>
+        <div class="meta"><span class="venue">I/ITSEC 2025</span><a class="plink" href="https://arxiv.org/abs/2508.17579" target="_blank" rel="noopener">arXiv ↗</a></div>
       </div>
 
       <div class="pub">
@@ -398,7 +382,7 @@ section[id]{scroll-margin-top:72px;}
       <div class="pub">
         <div class="pt">Open-Vocabulary High-Resolution 3D (OVHR3D) Data Segmentation and Annotation Framework</div>
         <div class="pa"><b>Xu, J.</b>, Chen, M., Feng, A., Yu, Z., Shi, Y.</div>
-        <div class="meta"><span class="status">Preprint</span><a class="plink" href="https://arxiv.org/abs/2412.06268" target="_blank" rel="noopener">arXiv ↗</a></div>
+        <div class="meta"><span class="venue">I/ITSEC 2024</span><a class="plink" href="https://arxiv.org/abs/2412.06268" target="_blank" rel="noopener">arXiv ↗</a></div>
       </div>
 
       <div class="pub">
@@ -437,11 +421,11 @@ section[id]{scroll-margin-top:72px;}
   <section id="projects">
     <span class="kicker">Selected Work</span>
     <h2 class="title">Projects</h2>
-    <div class="projects">
+    <div class="projects-list">
 
-      <div class="card">
-        <div class="card-img"><img src="lowdiff.jpg" alt="LowDiff" onerror="this.remove()"><div class="ph">LowDiff</div></div>
-        <div class="card-body">
+      <article class="pcard">
+        <div class="pfig img"><img src="lowdiff.jpg" alt="LowDiff overview" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">LowDiff</span></div>
+        <div class="pbody">
           <h3>LowDiff</h3>
           <div class="tags"><span class="tag">Diffusion</span><span class="tag">Efficient Sampling</span><span class="tag">Image Generation</span></div>
           <p>An efficient cascaded diffusion framework that progressively refines images from low to target
@@ -449,11 +433,11 @@ section[id]{scroll-margin-top:72px;}
           high-resolution sampling steps. Works in both pixel space (EDM) and latent space (LightningDiT),
           delivering 50–80% throughput gains across CIFAR-10, FFHQ-64 and ImageNet-256.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
-        <div class="card-img"><img src="FastVLA.jpg" alt="FastVLA" onerror="this.remove()"><div class="ph">FastVLA</div></div>
-        <div class="card-body">
+      <article class="pcard">
+        <div class="pfig img"><img src="FastVLA.jpg" alt="FastVLA overview" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">FastVLA</span></div>
+        <div class="pbody">
           <h3>FastVLA</h3>
           <div class="tags"><span class="tag">VLA</span><span class="tag">Token Compression</span><span class="tag">Training-Free</span></div>
           <p>A training-free, instruction-aware, temporally adaptive visual-token compression framework for
@@ -461,83 +445,16 @@ section[id]{scroll-margin-top:72px;}
           compression rate online with an inverse-Simpson uniformity metric. Across OpenVLA, OpenVLA-OFT and
           CogACT, it cuts backbone FLOPs by 35–60% and latency by 9–32% (1.11×–1.46× speedup) while keeping task success.</p>
         </div>
-      </div>
+      </article>
 
-    </div>
-
-    <div class="card featured" id="quantvla">
-      <div class="feat-fig">
-        <div class="table-wrap">
-        <table class="rtab">
-          <thead>
-            <tr>
-              <th rowspan="2">Benchmark</th><th rowspan="2">Model</th><th rowspan="2">Metric</th>
-              <th colspan="7">Quantization Setting</th>
-            </tr>
-            <tr>
-              <th>Baseline</th><th>W3</th><th>W4</th><th>W8</th><th>W4A4</th><th>W4A8</th><th>W8A8</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="sep">
-              <th rowspan="5" class="grp">LIBERO</th>
-              <td class="lbl">OpenVLA-OFT</td><td>SR (%)</td>
-              <td class="base">96.9</td><td>94.2</td><td>96.4</td><td>96.4</td><td class="fail">0.0</td><td>93.8</td><td>96.2</td>
-            </tr>
-            <tr>
-              <td class="lbl">&pi;<sub>0</sub></td><td>SR (%)</td>
-              <td class="base">73.7</td><td>68.1</td><td>72.4</td><td>74.9</td><td class="fail">0.0</td><td>61.5</td><td>72.9</td>
-            </tr>
-            <tr>
-              <td class="lbl">&pi;<sub>0.5</sub></td><td>SR (%)</td>
-              <td class="base">97.7</td><td>97.5</td><td>97.6</td><td>97.5</td><td class="fail">0.0</td><td>97.2</td><td>97.4</td>
-            </tr>
-            <tr>
-              <td class="lbl">InternVLA-M1</td><td>SR (%)</td>
-              <td class="base">95.6</td><td class="fail">0.0</td><td>94.9</td><td>95.5</td><td class="fail">0.0</td><td>75.8</td><td>95.7</td>
-            </tr>
-            <tr>
-              <td class="lbl">X-VLA</td><td>SR (%)</td>
-              <td class="base">97.6</td><td>96.5</td><td>98.1</td><td>97.5</td><td class="fail">0.0</td><td>97.4</td><td>97.7</td>
-            </tr>
-            <tr class="sep">
-              <th rowspan="2" class="grp">SIMPLER-VM</th>
-              <td class="lbl">CogAct</td><td>SR (%)</td>
-              <td class="base">73.8</td><td>75.9</td><td>66.6</td><td>74.0</td><td class="fail">0.0</td><td>69.6</td><td>72.2</td>
-            </tr>
-            <tr>
-              <td class="lbl">X-VLA</td><td>SR (%)</td>
-              <td class="base">78.4</td><td>72.5</td><td>78.6</td><td>75.6</td><td class="fail">0.0</td><td>74.3</td><td>76.0</td>
-            </tr>
-            <tr class="sep">
-              <th rowspan="2" class="grp">SIMPLER-VA</th>
-              <td class="lbl">CogAct</td><td>SR (%)</td>
-              <td class="base">69.9</td><td>60.2</td><td>67.6</td><td>70.3</td><td class="fail">0.0</td><td>68.8</td><td>67.8</td>
-            </tr>
-            <tr>
-              <td class="lbl">X-VLA</td><td>SR (%)</td>
-              <td class="base">73.1</td><td>73.5</td><td>72.4</td><td>73.3</td><td class="fail">0.0</td><td>70.6</td><td>73.1</td>
-            </tr>
-            <tr class="sep">
-              <th class="grp">CALVIN ABC&rarr;D</th>
-              <td class="lbl">X-VLA</td><td>Avg. Len.</td>
-              <td class="base">4.28</td><td>4.12</td><td>4.21</td><td>4.31</td><td class="fail">0.0</td><td>4.25</td><td>4.27</td>
-            </tr>
-            <tr class="sep">
-              <th class="grp">VLABench</th>
-              <td class="lbl">X-VLA</td><td>Avg. PS</td>
-              <td class="base">34.5</td><td>34.7</td><td>33.3</td><td>34.4</td><td>2.6</td><td>33.0</td><td>33.6</td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        <p class="fig-cap">QuantVLA main results &mdash; Success Rate (SR&nbsp;%) unless noted; <span class="fail-key">0.0</span> marks catastrophic collapse, most visible under the aggressive W4A4 setting.</p>
-      </div>
-      <div class="card-body">
+      <article class="pcard" id="quantvla">
+        <div class="pfig img"><img src="quantvla_results.png" alt="QuantVLA main results — post-training quantization across VLA models and benchmarks" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">QuantVLA</span></div>
+      <div class="pbody">
         <h3>QuantVLA</h3>
         <div class="tags"><span class="tag">VLA</span><span class="tag">Quantization</span><span class="tag">PTQ Benchmark</span></div>
         <p>The first comprehensive post-training quantization (PTQ) benchmark for VLA models, spanning weight-only (W3/W4/W8) and weight-activation (W4A4/W4A8/W8A8) settings across LIBERO, SIMPLER, CALVIN and VLABench, plus LLM techniques such as AWQ and SmoothQuant. It reveals that the LLM backbone and action head are especially sensitive, and that aggressive bit-widths (e.g. W4A4) trigger sharp, model-dependent collapse.</p>
       </div>
+    </article>
     </div>
   </section>
 
