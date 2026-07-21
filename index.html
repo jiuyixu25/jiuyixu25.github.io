@@ -68,7 +68,8 @@ nav{
 .brand{font-weight:700;font-size:16px;color:var(--text);display:flex;align-items:center;gap:9px;}
 .brand:hover{text-decoration:none;}
 .brand .mono{display:inline-flex;width:28px;height:28px;border-radius:7px;background:#a12a41;color:#fff;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
-.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-links{display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
+.nav-links::-webkit-scrollbar{display:none;}
 .nav-links a{color:var(--text-soft);font-size:14.5px;font-weight:500;padding:7px 11px;border-radius:8px;transition:color .2s,background .2s;}
 .nav-links a:hover,.nav-links a.active{color:var(--accent-strong);background:var(--accent-soft);text-decoration:none;}
 #theme-toggle{margin-left:6px;background:none;border:1px solid var(--border);color:var(--text-soft);width:34px;height:34px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s;}
@@ -125,10 +126,12 @@ h2.title{margin:0 0 26px;font-size:26px;letter-spacing:-.01em;}
 .tag{font-size:11.5px;font-weight:600;color:var(--text-soft);background:var(--bg-alt);border:1px solid var(--border);padding:2px 9px;border-radius:6px;}
 .card-body p{margin:0;font-size:14.5px;color:var(--text-soft);line-height:1.6;}
 
-/* ---------- QuantVLA results table ---------- */
-.results{margin-top:28px;}
-.results-head h3{margin:0 0 5px;font-size:18px;}
-.results-head p{margin:0 0 14px;color:var(--text-soft);font-size:14px;line-height:1.55;}
+/* ---------- QuantVLA featured card + results table ---------- */
+.card.featured{margin-bottom:20px;}
+.card.featured:hover{transform:none;box-shadow:0 2px 10px var(--shadow);border-color:var(--border);}
+.feat-fig{padding:18px 18px 8px;background:var(--bg-alt);border-bottom:1px solid var(--border);}
+.feat-fig .table-wrap{background:var(--card);}
+.fig-cap{margin:11px 2px 2px;font-size:12.5px;color:var(--text-soft);line-height:1.5;}
 .fail-key{color:#e5484d;font-weight:700;}
 .table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;-webkit-overflow-scrolling:touch;}
 .rtab{border-collapse:collapse;width:100%;min-width:680px;font-size:13.5px;}
@@ -153,6 +156,28 @@ h2.title{margin:0 0 26px;font-size:26px;letter-spacing:-.01em;}
 .contact-box{background:var(--bg-alt);border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center;}
 .contact-box p{margin:0 0 18px;color:var(--text-soft);}
 .contact-box .socials{justify-content:center;}
+
+/* ---------- CV: education / experience / awards / service ---------- */
+.subhead{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:26px 0 8px;}
+.subhead:first-of-type{margin-top:4px;}
+.entry{padding:14px 0;border-bottom:1px solid var(--border);}
+.entry:last-child{border-bottom:none;}
+.entry-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;}
+.entry-head .t{font-weight:700;color:var(--text);}
+.entry-head .d{color:var(--text-soft);font-size:13.5px;white-space:nowrap;}
+.entry .sub{margin:3px 0 0;color:var(--text-soft);font-size:14.5px;}
+.entry ul{margin:8px 0 0;padding-left:18px;}
+.entry ul li{font-size:14.5px;color:var(--text-soft);margin-bottom:3px;}
+.awards{list-style:none;margin:0;padding:0;}
+.awards li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);}
+.awards li:last-child{border-bottom:none;}
+.awards li .y{color:var(--text-soft);font-size:14px;white-space:nowrap;}
+.venues{display:flex;flex-wrap:wrap;gap:8px;}
+.venue-chip{font-size:13px;font-weight:600;color:var(--text);background:var(--bg-alt);border:1px solid var(--border);padding:5px 12px;border-radius:8px;}
+.plink{font-size:12px;font-weight:600;padding:2px 9px;border-radius:6px;border:1px solid var(--border);color:var(--accent-strong);background:var(--card);}
+.plink:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-soft);}
+.socials a.primary{background:#a12a41;color:#fff;border-color:#a12a41;}
+.socials a.primary:hover{background:#86233a;border-color:#86233a;color:#fff;}
 
 /* ---------- Footer ---------- */
 footer{margin-top:60px;border-top:1px solid var(--border);padding:26px 0 34px;text-align:center;color:var(--text-soft);font-size:13.5px;}
@@ -184,9 +209,10 @@ section[id]{scroll-margin-top:72px;}
     <a class="brand" href="#top"><span class="mono">JX</span><span class="full">Jiuyi Xu</span></a>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
-      <a href="#news">News</a>
+      <a href="#awards">Awards</a>
       <a href="#contact">Contact</a>
       <button id="theme-toggle" aria-label="Toggle dark mode"></button>
     </div>
@@ -204,7 +230,7 @@ section[id]{scroll-margin-top:72px;}
       <div class="hero-body">
         <h1>Jiuyi (Joey) Xu<span class="cn">徐久乙</span></h1>
         <p class="role">Ph.D. Student in Robotics</p>
-        <p class="affil">Colorado School of Mines · Advised by Dr. Yangming Shi</p>
+        <p class="affil">Colorado School of Mines, Golden CO · Advised by Dr. Yangming Shi</p>
         <div class="chips">
           <span class="chip">Vision-Language-Action (VLA)</span>
           <span class="chip">Efficient AI</span>
@@ -213,6 +239,9 @@ section[id]{scroll-margin-top:72px;}
           <span class="chip">Open-Vocabulary Perception</span>
         </div>
         <div class="socials">
+          <a class="primary" href="Jiuyi_Xu_CV.pdf" target="_blank" rel="noopener" aria-label="Download CV">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>CV (PDF)
+          </a>
           <a href="mailto:jiuyixjiuyi@gmail.com" aria-label="Email">
             <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>Email
           </a>
@@ -246,10 +275,100 @@ section[id]{scroll-margin-top:72px;}
     </div>
   </section>
 
+  <!-- ===== Education & Experience ===== -->
+  <section id="experience">
+    <span class="kicker">Background</span>
+    <h2 class="title">Education &amp; Experience</h2>
+
+    <p class="subhead">Education</p>
+    <div class="cv-list">
+      <div class="entry">
+        <div class="entry-head"><span class="t">Ph.D. in Robotics</span><span class="d">2024 – Present</span></div>
+        <p class="sub">Colorado School of Mines, Golden, CO · Advisor: Dr. Yangming Shi</p>
+        <p class="sub">Research: Vision-Language-Action (VLA) models · Efficient AI</p>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="t">M.S. in Computer Science</span><span class="d">2022 – 2024</span></div>
+        <p class="sub">University of Southern California, Los Angeles, CA</p>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="t">B.E. in Software Engineering</span><span class="d">2017 – 2021</span></div>
+        <p class="sub">Dalian University of Technology, Dalian, China</p>
+      </div>
+    </div>
+
+    <p class="subhead">Research Experience</p>
+    <div class="cv-list">
+      <div class="entry">
+        <div class="entry-head"><span class="t">Graduate Research Assistant — Yangming Research Group</span><span class="d">Aug 2024 – Present</span></div>
+        <p class="sub">Colorado School of Mines, Golden, CO · Advisor: Dr. Yangming Shi</p>
+        <ul>
+          <li>Research on efficient vision-language-action (VLA) models.</li>
+          <li>Applying generative AI to problems across civil engineering.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="t">Research Assistant (Intern) — Geospatial Terrain Research, USC ICT</span><span class="d">Jun 2023 – Jun 2024</span></div>
+        <p class="sub">USC Institute for Creative Technologies, Los Angeles, CA · Advisor: Dr. Meida Chen</p>
+        <ul>
+          <li>Automated annotation of real and synthetic imagery via open-vocabulary object detection (OVOD) and semantic segmentation.</li>
+          <li>Tripping-hazard detection on construction sites using Grounding DINO (OVOD) and the Segment Anything Model (SAM).</li>
+          <li>2D–3D open-vocabulary semantic segmentation (OVSS) on photogrammetric point clouds via OVOD and k-means clustering.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="subhead">Industry Experience</p>
+    <div class="cv-list">
+      <div class="entry">
+        <div class="entry-head"><span class="t">Robotics Intern — Prime Robotics</span><span class="d">May 2026 – Present</span></div>
+        <p class="sub">Denver, CO · Manager: Ryan Austin</p>
+        <ul>
+          <li>Built and maintained a production-grade multi-agent path-planning system for 10+ agents in real time.</li>
+          <li>Trained and integrated large-scale AI models to improve planning accuracy and system throughput.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Publications ===== -->
   <section id="publications">
     <span class="kicker">Research</span>
     <h2 class="title">Publications</h2>
+
+    <div class="year-group">
+      <p class="year-label">2026</p>
+
+      <div class="pub">
+        <div class="pt">VLAQuantBench: Benchmarking Post-Training Quantization for Vision-Language-Action Models under Closed-Loop Control</div>
+        <div class="pa"><b>Xu, J.</b>, Chen, M., Wang, S., Sui, Y., Shi, Y.</div>
+        <div class="meta"><span class="status">Preprint</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">FastVLA: Instruction-Conditioned and Temporally Adaptive Visual Token Compression for Efficient Vision-Language-Action Models</div>
+        <div class="pa"><b>Xu, J.</b>, Qian, C., Tu, Z., Sui, Y., Shi, Y.</div>
+        <div class="meta"><span class="status">Preprint</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">Domain Knowledge-Infused Prompting for Deep and Full-Sentence Information Extraction from Bridge Inspection Reports</div>
+        <div class="pa">Vahidi, M., <b>Xu, J.</b>, Shi, Y., Liu, K.</div>
+        <div class="meta"><span class="status">Preprint</span></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">An Autoregressive-based Framework for Simulating Stochastic Occupant Behavior in Residential Buildings</div>
+        <div class="pa"><b>Xu, J.</b>, Kim, R., Ye, Y., Shi, Y.</div>
+        <div class="meta"><span class="venue">Building Simulation</span><a class="plink" href="https://link.springer.com/article/10.1007/s12273-026-1406-3" target="_blank" rel="noopener">Springer ↗</a></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">GenVision: Enhancing Construction Safety Monitoring with Synthetic Image Generation</div>
+        <div class="pa"><b>Xu, J.</b>, Chen, M., Shi, Y.</div>
+        <div class="meta"><span class="venue">WSC 2025</span><a class="plink" href="https://ieeexplore.ieee.org/abstract/document/11338881" target="_blank" rel="noopener">IEEE ↗</a></div>
+      </div>
+    </div>
 
     <div class="year-group">
       <p class="year-label">2025</p>
@@ -257,43 +376,19 @@ section[id]{scroll-margin-top:72px;}
       <div class="pub">
         <div class="pt">LowDiff: Efficient Diffusion Sampling with Low-Resolution Condition</div>
         <div class="pa"><b>Xu, J.</b>, Jin, Q., Chen, M., Feng, A., Sui, Y., Shi, Y.</div>
-        <div class="meta"><span class="status">Under Review</span></div>
-      </div>
-
-      <div class="pub">
-        <div class="pt">Domain Knowledge-Infused Prompting for Deep and Full-Sentence Information Extraction from Bridge Inspection Reports</div>
-        <div class="pa">Vahidi, M., <b>Xu, J.</b>, Shi, Y., Liu, K.</div>
-        <div class="meta"><span class="status">Under Review</span></div>
-      </div>
-
-      <div class="pub">
-        <div class="pt">To Shelter or Not To Shelter: Exploring the Influence of Different Modalities in Virtual Reality on Individuals' Tornado Mitigation Behaviors</div>
-        <div class="pa"><b>Xu, J.</b>, Sanni, T., Liu, Z., Ye, Y., Lee, J., Song, W., Shi, Y.</div>
-        <div class="meta"><span class="status">Under Review</span></div>
-      </div>
-
-      <div class="pub">
-        <div class="pt">An Autoregressive-based Framework for Simulating Stochastic Occupant Behavior in Residential Buildings</div>
-        <div class="pa"><b>Xu, J.</b>, Kim, R., Ye, Y., Shi, Y.</div>
-        <div class="meta"><span class="venue">Building Simulation</span></div>
-      </div>
-
-      <div class="pub">
-        <div class="pt">GenVision: Enhancing Construction Safety Monitoring with Synthetic Image Generation</div>
-        <div class="pa"><b>Xu, J.</b>, Chen, M., Shi, Y.</div>
-        <div class="meta"><span class="venue">Winter Simulation Conference 2025</span></div>
+        <div class="meta"><span class="status">Preprint</span><a class="plink" href="https://arxiv.org/abs/2509.15342" target="_blank" rel="noopener">arXiv ↗</a></div>
       </div>
 
       <div class="pub">
         <div class="pt">IDU: Incremental Dynamic Update of Existing 3D Virtual Environments with New Imagery Data</div>
         <div class="pa">Chen, M., Leal, L., Hu, Y., Liu, R., Xiong, B., Feng, A., <b>Xu, J.</b>, Shi, Y.</div>
-        <div class="meta"><span class="venue">I/ITSEC 2025</span></div>
+        <div class="meta"><span class="status">Preprint</span><a class="plink" href="https://arxiv.org/abs/2508.17579" target="_blank" rel="noopener">arXiv ↗</a></div>
       </div>
 
       <div class="pub">
-        <div class="pt">Egosafe: An Egocentric Camera-Based Method for Detecting Hazardous Objectives on Construction Sites</div>
-        <div class="pa">Liu, Z., <b>Xu, J.</b>, Suen, W.K., Chen, M., Zou, Z., Shi, Y.</div>
-        <div class="meta"><span class="venue">Automation in Construction</span></div>
+        <div class="pt">Egocentric Camera-Based Method for Detecting Static Hazardous Objects on Construction Sites</div>
+        <div class="pa">Liu, Z., <b>Xu, J.</b>, Wun, C., Chen, M., Zou, Z., Shi, Y.</div>
+        <div class="meta"><span class="venue">Automation in Construction</span><a class="plink" href="https://www.sciencedirect.com/science/article/pii/S0926580525000883" target="_blank" rel="noopener">DOI ↗</a></div>
       </div>
     </div>
 
@@ -301,7 +396,25 @@ section[id]{scroll-margin-top:72px;}
       <p class="year-label">2024</p>
 
       <div class="pub">
-        <div class="pt">An Open Vocabulary Framework for Efficient 2D and 3D Visual Data Annotation in Indoor and Outdoor Built Environments</div>
+        <div class="pt">Open-Vocabulary High-Resolution 3D (OVHR3D) Data Segmentation and Annotation Framework</div>
+        <div class="pa"><b>Xu, J.</b>, Chen, M., Feng, A., Yu, Z., Shi, Y.</div>
+        <div class="meta"><span class="status">Preprint</span><a class="plink" href="https://arxiv.org/abs/2412.06268" target="_blank" rel="noopener">arXiv ↗</a></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">To Shelter or Not To Shelter: Exploring the Influence of Different Modalities in Virtual Reality on Individuals' Tornado Mitigation Behaviors</div>
+        <div class="pa"><b>Xu, J.</b>, Sanni, T., Liu, Z., Yang, Y., Lee, J., Song, W., Shi, Y.</div>
+        <div class="meta"><span class="status">Preprint</span><a class="plink" href="https://arxiv.org/abs/2409.09205" target="_blank" rel="noopener">arXiv ↗</a></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">Large-Scale 3D Terrain Reconstruction Using 3D Gaussian Splatting for Visualization and Simulation</div>
+        <div class="pa">Chen, M., Lal, D., Yu, Z., <b>Xu, J.</b>, Feng, A., You, S., Nurunnabi, A., Shi, Y.</div>
+        <div class="meta"><span class="venue">ISPRS Archives</span><a class="plink" href="https://doi.org/10.5194/isprs-archives-xlviii-2-2024-49-2024" target="_blank" rel="noopener">DOI ↗</a></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">An Open-Vocabulary Framework for Efficient 2D and 3D Visual Data Annotation in Indoor and Outdoor Built Environments</div>
         <div class="pa">Rahman, M.A., <b>Xu, J.</b>, Liu, Z., Chen, M., Zhu, R., Liu, Y., Shi, Y., Feng, A.</div>
         <div class="meta"><span class="venue">i3ce 2024</span></div>
       </div>
@@ -310,18 +423,6 @@ section[id]{scroll-margin-top:72px;}
         <div class="pt">Detecting without Training: An Open-Vocabulary Object Detection Method for Identifying Hazardous Objects on Construction Sites</div>
         <div class="pa">Liu, Z., <b>Xu, J.</b>, Suen, W.K., Chen, M., Zou, Z., Feng, A., Shi, Y.</div>
         <div class="meta"><span class="venue">i3ce 2024</span></div>
-      </div>
-
-      <div class="pub">
-        <div class="pt">Large-Scale 3D Terrain Reconstruction Using 3D Gaussian Splatting for Visualization and Simulation</div>
-        <div class="pa">Chen, M., Lal, D., Yu, Z., <b>Xu, J.</b>, Feng, A., You, S., Nurunnabi, A., Shi, Y.</div>
-        <div class="meta"><span class="venue">ISPRS</span></div>
-      </div>
-
-      <div class="pub">
-        <div class="pt">Open-Vocabulary High-Resolution 3D (OVHR3D) Data Segmentation and Annotation Framework</div>
-        <div class="pa"><b>Xu, J.</b>, Chen, M., Feng, A., Yu, Z., Shi, Y.</div>
-        <div class="meta"><span class="venue">I/ITSEC 2024</span></div>
       </div>
     </div>
 
@@ -351,19 +452,6 @@ section[id]{scroll-margin-top:72px;}
       </div>
 
       <div class="card">
-        <div class="card-img"><div class="ph">QuantVLA</div></div>
-        <div class="card-body">
-          <h3>QuantVLA</h3>
-          <div class="tags"><span class="tag">VLA</span><span class="tag">Quantization</span><span class="tag">PTQ Benchmark</span></div>
-          <p>The first comprehensive post-training quantization (PTQ) benchmark for VLA models, spanning
-          weight-only (W3/W4/W8) and weight-activation (W4A4/W4A8/W8A8) settings across LIBERO, SIMPLER,
-          CALVIN and VLABench, plus LLM techniques such as AWQ and SmoothQuant. It reveals that the LLM
-          backbone and action head are especially sensitive, and that aggressive bit-widths (e.g. W4A4)
-          trigger sharp, model-dependent collapse &mdash; see the results table below.</p>
-        </div>
-      </div>
-
-      <div class="card">
         <div class="card-img"><img src="FastVLA.jpg" alt="FastVLA" onerror="this.remove()"><div class="ph">FastVLA</div></div>
         <div class="card-body">
           <h3>FastVLA</h3>
@@ -377,12 +465,9 @@ section[id]{scroll-margin-top:72px;}
 
     </div>
 
-    <div class="results" id="quantvla-results">
-      <div class="results-head">
-        <h3>QuantVLA &mdash; Main Results</h3>
-        <p>Task performance across post-training quantization settings (Success Rate, SR&nbsp;%, unless a different metric is noted). <span class="fail-key">0.0</span> marks catastrophic collapse &mdash; most visible under the aggressive W4A4 setting.</p>
-      </div>
-      <div class="table-wrap">
+    <div class="card featured" id="quantvla">
+      <div class="feat-fig">
+        <div class="table-wrap">
         <table class="rtab">
           <thead>
             <tr>
@@ -445,7 +530,37 @@ section[id]{scroll-margin-top:72px;}
             </tr>
           </tbody>
         </table>
+        </div>
+        <p class="fig-cap">QuantVLA main results &mdash; Success Rate (SR&nbsp;%) unless noted; <span class="fail-key">0.0</span> marks catastrophic collapse, most visible under the aggressive W4A4 setting.</p>
       </div>
+      <div class="card-body">
+        <h3>QuantVLA</h3>
+        <div class="tags"><span class="tag">VLA</span><span class="tag">Quantization</span><span class="tag">PTQ Benchmark</span></div>
+        <p>The first comprehensive post-training quantization (PTQ) benchmark for VLA models, spanning weight-only (W3/W4/W8) and weight-activation (W4A4/W4A8/W8A8) settings across LIBERO, SIMPLER, CALVIN and VLABench, plus LLM techniques such as AWQ and SmoothQuant. It reveals that the LLM backbone and action head are especially sensitive, and that aggressive bit-widths (e.g. W4A4) trigger sharp, model-dependent collapse.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Awards & Service ===== -->
+  <section id="awards">
+    <span class="kicker">Recognition</span>
+    <h2 class="title">Honors &amp; Service</h2>
+
+    <p class="subhead">Awards</p>
+    <ul class="awards">
+      <li><span>ASCE Best Data Award</span><span class="y">2025</span></li>
+      <li><span>ASCE Outstanding Reviewer</span><span class="y">2025</span></li>
+    </ul>
+
+    <p class="subhead">Academic Service — Reviewer</p>
+    <div class="venues">
+      <span class="venue-chip">NeurIPS 2026</span>
+      <span class="venue-chip">AISTATS 2026</span>
+      <span class="venue-chip">IEEE TNNLS</span>
+      <span class="venue-chip">Int'l Journal of Data Science &amp; Analytics</span>
+      <span class="venue-chip">J. Computing in Civil Engineering</span>
+      <span class="venue-chip">ISARC 2026</span>
+      <span class="venue-chip">ISARC 2025</span>
     </div>
   </section>
 
