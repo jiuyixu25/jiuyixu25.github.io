@@ -128,6 +128,7 @@ h2.title{margin:0 0 26px;font-size:26px;letter-spacing:-.01em;}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px;}
 .tag{font-size:11.5px;font-weight:600;color:var(--text-soft);background:var(--bg-alt);border:1px solid var(--border);padding:2px 9px;border-radius:6px;}
 .pbody p{margin:0;font-size:14.5px;color:var(--text-soft);line-height:1.6;}
+.pbody p sub{font-size:.75em;line-height:0;position:relative;vertical-align:baseline;bottom:-.25em;}
 
 /* ---------- News ---------- */
 .news{list-style:none;margin:0;padding:0;}
@@ -177,6 +178,9 @@ footer{margin-top:60px;border-top:1px solid var(--border);padding:26px 0 34px;te
   .news li{flex-direction:column;gap:2px;}
   .news .date{width:auto;}
   section{padding:48px 0 4px;}
+  .pfig.img{height:auto;padding:14px;}
+  .pfig.img img{max-height:300px;}
+  .pfig.noimg{min-height:160px;}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
@@ -248,7 +252,7 @@ section[id]{scroll-margin-top:72px;}
         Jiuyi (Joey) Xu is a Ph.D. student in Robotics at the Colorado School of Mines, advised by
         Dr. Yangming Shi. He works at the crossroads of <b>efficient AI</b> and <b>embodied intelligence</b>,
         aiming to make large <b>vision-language-action (VLA)</b> and <b>world-action models (WAMs)</b> fast and
-        deployable on real robots with consumer-grade GPU. He is currently a Robotics Intern at Prime Robotics, 
+        deployable on real robots with consumer-grade GPUs. He is currently a Robotics Intern at Prime Robotics, 
         building real-time multi-agent path planning and LLM-driven robot agents.
       </p>
       <p>
@@ -325,13 +329,19 @@ section[id]{scroll-margin-top:72px;}
       <p class="year-label">2026</p>
 
       <div class="pub">
-        <div class="pt">VLAQuantBench: Benchmarking Post-Training Quantization for Vision-Language-Action Models under Closed-Loop Control</div>
-        <div class="pa"><b>Xu, J.</b>, Chen, M., Wang, S., Sui, Y., Shi, Y.</div>
-        <div class="meta"><span class="status">Preprint</span></div>
+        <div class="pt">VLAQuantBench: Closed-Loop Evaluation of Post-Training Quantization for Vision-Language-Action Models</div>
+        <div class="pa"><b>Xu, J.</b>, Jin, Q., Chen, M., Wang, S., Sui, Y., Shi, Y.</div>
+        <div class="meta"><span class="status">Preprint</span><a class="plink" href="https://arxiv.org/abs/2609.25376" target="_blank" rel="noopener">arXiv ↗</a><a class="plink" href="https://github.com/jiuyixu25/VLAQuantBench" target="_blank" rel="noopener">Code ↗</a></div>
       </div>
 
       <div class="pub">
-        <div class="pt">FastVLA: Instruction-Conditioned and Temporally Adaptive Visual Token Compression for Efficient Vision-Language-Action Models</div>
+        <div class="pt">Predict Before You Deploy: Offline Prediction of Quantization-Induced Task Degradation for World Action Models</div>
+        <div class="pa"><b>Xu, J.</b>, Guo, J., Chen, M., Du, J., Shi, Y.</div>
+        <div class="meta"><span class="status">Preprint</span><a class="plink" href="https://arxiv.org/abs/2609.19441" target="_blank" rel="noopener">arXiv ↗</a><a class="plink" href="https://github.com/jiuyixu25/PreDE" target="_blank" rel="noopener">Code ↗</a></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">FastVLA: Task-Conditioned and Temporally Adaptive Visual Token Compression for Efficient Vision-Language-Action Models</div>
         <div class="pa"><b>Xu, J.</b>, Qian, C., Tu, Z., Sui, Y., Shi, Y.</div>
         <div class="meta"><span class="status">Preprint</span></div>
       </div>
@@ -347,12 +357,6 @@ section[id]{scroll-margin-top:72px;}
         <div class="pa"><b>Xu, J.</b>, Kim, R., Ye, Y., Shi, Y.</div>
         <div class="meta"><span class="venue">Building Simulation</span><a class="plink" href="https://link.springer.com/article/10.1007/s12273-026-1406-3" target="_blank" rel="noopener">Springer ↗</a></div>
       </div>
-
-      <div class="pub">
-        <div class="pt">GenVision: Enhancing Construction Safety Monitoring with Synthetic Image Generation</div>
-        <div class="pa"><b>Xu, J.</b>, Chen, M., Shi, Y.</div>
-        <div class="meta"><span class="venue">WSC 2025</span><a class="plink" href="https://ieeexplore.ieee.org/abstract/document/11338881" target="_blank" rel="noopener">IEEE ↗</a></div>
-      </div>
     </div>
 
     <div class="year-group">
@@ -362,6 +366,12 @@ section[id]{scroll-margin-top:72px;}
         <div class="pt">LowDiff: Efficient Diffusion Sampling with Low-Resolution Condition</div>
         <div class="pa"><b>Xu, J.</b>, Jin, Q., Chen, M., Feng, A., Sui, Y., Shi, Y.</div>
         <div class="meta"><span class="status">Preprint</span><a class="plink" href="https://arxiv.org/abs/2509.15342" target="_blank" rel="noopener">arXiv ↗</a></div>
+      </div>
+
+      <div class="pub">
+        <div class="pt">GenVision: Enhancing Construction Safety Monitoring with Synthetic Image Generation</div>
+        <div class="pa"><b>Xu, J.</b>, Chen, M., Shi, Y.</div>
+        <div class="meta"><span class="venue">WSC 2025</span><a class="plink" href="https://ieeexplore.ieee.org/abstract/document/11338881" target="_blank" rel="noopener">IEEE ↗</a></div>
       </div>
 
       <div class="pub">
@@ -401,13 +411,13 @@ section[id]{scroll-margin-top:72px;}
       <div class="pub">
         <div class="pt">An Open-Vocabulary Framework for Efficient 2D and 3D Visual Data Annotation in Indoor and Outdoor Built Environments</div>
         <div class="pa">Rahman, M.A., <b>Xu, J.</b>, Liu, Z., Chen, M., Zhu, R., Liu, Y., Shi, Y., Feng, A.</div>
-        <div class="meta"><span class="venue">i3ce 2024</span></div>
+        <div class="meta"><span class="venue">i3CE 2024</span></div>
       </div>
 
       <div class="pub">
         <div class="pt">Detecting without Training: An Open-Vocabulary Object Detection Method for Identifying Hazardous Objects on Construction Sites</div>
         <div class="pa">Liu, Z., <b>Xu, J.</b>, Suen, W.K., Chen, M., Zou, Z., Feng, A., Shi, Y.</div>
-        <div class="meta"><span class="venue">i3ce 2024</span></div>
+        <div class="meta"><span class="venue">i3CE 2024</span></div>
       </div>
     </div>
 
@@ -443,8 +453,8 @@ section[id]{scroll-margin-top:72px;}
         <div class="pbody">
           <h3>FastVLA</h3>
           <div class="tags"><span class="tag">VLA</span><span class="tag">Token Compression</span><span class="tag">Training-Free</span></div>
-          <p>A training-free, instruction-aware, and temporally adaptive visual-token compression framework for
-          efficient closed-loop VLA inference. At each step it scores token importance via instruction-to-vision
+          <p>A training-free, task-aware, and temporally adaptive visual-token compression framework for
+          efficient closed-loop VLA inference. At each step it scores token importance via task-to-vision
           attention and sets the compression rate from the importance-distribution uniformity, measured by an
           inverse-Simpson metric with online sliding-window calibration. Across OpenVLA, OpenVLA-OFT and CogACT
           on LIBERO and SIMPLER it reduces LLM-backbone FLOPs by 35–59% and action latency by 9–32%
@@ -453,14 +463,41 @@ section[id]{scroll-margin-top:72px;}
         </div>
       </article>
 
-      <article class="pcard" id="quantvla">
-        <div class="pfig img"><img src="quantvla_results.png" alt="QuantVLA main results — post-training quantization across VLA models and benchmarks" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">QuantVLA</span></div>
-      <div class="pbody">
-        <h3>QuantVLA</h3>
-        <div class="tags"><span class="tag">VLA</span><span class="tag">Quantization</span><span class="tag">PTQ Benchmark</span></div>
-        <p>A benchmark that evaluates post-training quantization (PTQ) of VLA models entirely under closed-loop task success, arguing that action error alone is an insufficient proxy for deployment. It spans 7 VLA models, 4 simulation environments and 6 weight / weight-activation bit settings, covering both full-model quantization and fine-grained, component-wise sensitivity across the LLM backbone, vision encoder and action head. It further benchmarks off-the-shelf LLM quantization methods on the VLA backbone, measures inference latency and memory under real quantization kernels, and validates behavior on a physical robot.</p>
-      </div>
-    </article>
+      <article class="pcard" id="vlaquantbench">
+        <div class="pfig img"><img src="vlaquantbench.jpg" alt="VLAQuantBench overview — evaluation axes across VLA models, quantization formats, layer scopes and benchmarks" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">VLAQuantBench</span></div>
+        <div class="pbody">
+          <h3>VLAQuantBench</h3>
+          <div class="tags"><span class="tag">VLA</span><span class="tag">Quantization</span><span class="tag">PTQ Benchmark</span></div>
+          <p>A controlled closed-loop evaluation of post-training quantization (PTQ) for VLA models: 409 runs and
+          94,574 simulation episodes covering OpenVLA-OFT, π<sub>0</sub>, π<sub>0.5</sub> and X-VLA on LIBERO, with
+          X-VLA further evaluated on SIMPLER, CALVIN and VLABench. Holding a shared round-to-nearest quantizer
+          fixed while varying numerical format and layer scope, it shows that quantization sensitivity is neither
+          monotone nor additive — under uncalibrated W4A4, expanding a π<sub>0.5</sub> action-head subset from 126
+          to 167 quantized layers raises success from 7.0% to 70.5%. For OpenVLA-OFT, protecting a single
+          28,672-parameter output projection restores near-baseline success. The results identify concrete,
+          recipe-dependent precision assignments rather than universal layer-sensitivity rules, and are
+          complemented by real-kernel memory and latency measurements and a physical Franka Research 3 study.</p>
+        </div>
+      </article>
+
+      <article class="pcard" id="prede">
+        <div class="pfig img"><img src="prede.jpg" alt="PreDE overview — closed-loop calibration, offline prediction and real-robot validation" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">PreDE</span></div>
+        <div class="pbody">
+          <h3>PreDE</h3>
+          <div class="tags"><span class="tag">WAM</span><span class="tag">Quantization</span><span class="tag">Offline Prediction</span></div>
+          <p>PreDE (Predict Before You Deploy) is a policy-calibrated framework that predicts whether a
+          quantization configuration will degrade a world action model's task performance before it is ever run
+          in closed loop. From the closed-loop outcomes of a small development set, it calibrates two thresholds
+          on offline action deviation, then accepts, rejects, or defers each new configuration using only a fixed
+          observation log and cached reference actions. Across five WAMs (Cosmos Policy, UVA, mimic-video,
+          RynnVLA-002 and Fast-WAM) and four benchmark settings, task losses cannot be explained by bit width
+          alone or by a shared deviation threshold. On 28 held-out configurations from two policies, PreDE issued
+          21 decisions (75% coverage) before observing any closed-loop outcome, all matching the observed labels.
+          In 450 Franka Research 3 trials, every configuration assigned to a high-deviation group showed
+          significant degradation, while W4A4 on the real robot delivered a 1.37× action-query speedup and about
+          44% lower peak memory.</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -494,7 +531,7 @@ section[id]{scroll-margin-top:72px;}
     <h2 class="title">News</h2>
     <ul class="news">
       <li><span class="date">Jun 8, 2026</span><span class="what">Received an NVIDIA Academic Grant.</span></li>
-      <li><span class="date">May 18, 2026</span><span class="what">Started as a Robotics Engineering Intern at Prime Robotics.</span></li>
+      <li><span class="date">May 18, 2026</span><span class="what">Started as a Robotics Intern at Prime Robotics.</span></li>
       <li><span class="date">May 11, 2026</span><span class="what">Passed my Ph.D. qualifying exam.</span></li>
       <li><span class="date">Apr 10, 2026</span><span class="what">Recognized as an Outstanding Reviewer of 2025 by the Journal of Computing in Civil Engineering.</span></li>
       <li><span class="date">Mar 18–21, 2026</span><span class="what">Presented "EgoVision: Generate Egocentric Images on Construction Sites using Diffusion Model" at CRC 2026.</span></li>
@@ -506,7 +543,7 @@ section[id]{scroll-margin-top:72px;}
       <li><span class="date">May 2024</span><span class="what">Earned an M.S. in Computer Science from the University of Southern California.</span></li>
       <li><span class="date">Feb 11–13, 2024</span><span class="what">Presented "A Hybrid 2D–3D Zero-shot Framework for Photogrammetric Data Segmentation" at Geo Week 2024.</span></li>
       <li><span class="date">Nov 27–Dec 1, 2023</span><span class="what">Presented "USC-ICT Semantic Terrain Points Labeling System" at I/ITSEC 2023.</span></li>
-      <li><span class="date">May 2023</span><span class="what">Started as a student research intern at USC-ICT (Geospatial Terrain Research), supervised by Dr. Meida Chen.</span></li>
+      <li><span class="date">Jun 2023</span><span class="what">Started as a student research intern at USC-ICT (Geospatial Terrain Research), supervised by Dr. Meida Chen.</span></li>
       <li><span class="date">Aug 2022</span><span class="what">Began the M.S. program in Computer Science at the University of Southern California.</span></li>
     </ul>
   </section>
