@@ -440,32 +440,22 @@ section[id]{scroll-margin-top:72px;}
     <h2 class="title">Projects</h2>
     <div class="projects-list">
 
-      <article class="pcard">
-        <div class="pfig img"><img src="lowdiff.jpg" alt="LowDiff overview" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">LowDiff</span></div>
+      <article class="pcard" id="prede">
+        <div class="pfig img"><img src="prede.jpg" alt="PreDE overview — closed-loop calibration, offline prediction and real-robot validation" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">PreDE</span></div>
         <div class="pbody">
-          <h3>LowDiff</h3>
-          <div class="tags"><span class="tag">Diffusion</span><span class="tag">Efficient Sampling</span><span class="tag">Image Generation</span></div>
-          <p>A cascaded diffusion framework that generates increasingly higher-resolution outputs, but replaces
-          the usual stack of stage-specific models with a single unified model that progressively refines images
-          from low to target resolution. It reaches comparable or better quality with far fewer high-resolution
-          sampling steps and applies to both pixel-space and latent-space diffusion. Across CIFAR-10, FFHQ and
-          ImageNet (conditional and unconditional) it delivers 50–80% throughput gains — e.g. FID 1.94 on
-          conditional CIFAR-10 and FID 1.59 on ImageNet-256 (LightningDiT-XL/1) — while maintaining quality.</p>
-        </div>
-      </article>
-
-      <article class="pcard">
-        <div class="pfig img"><img src="FastVLA.jpg" alt="FastVLA overview" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">FastVLA</span></div>
-        <div class="pbody">
-          <h3>FastVLA</h3>
-          <div class="tags"><span class="tag">VLA</span><span class="tag">Token Compression</span><span class="tag">Training-Free</span></div>
-          <p>A training-free, task-aware, and temporally adaptive visual-token compression framework for
-          efficient closed-loop VLA inference. At each step it scores token importance via task-to-vision
-          attention and sets the compression rate from the importance-distribution uniformity, measured by an
-          inverse-Simpson metric with online sliding-window calibration. Across OpenVLA, OpenVLA-OFT and CogACT
-          on LIBERO and SIMPLER it reduces LLM-backbone FLOPs by 35–59% and action latency by 9–32%
-          (1.09×–1.46× speedup) while maintaining task success; on a physical Franka Research 3 robot it cuts
-          end-to-end latency by 20% (1.25× speedup) at comparable success.</p>
+          <h3>PreDE</h3>
+          <div class="tags"><span class="tag">WAM</span><span class="tag">Quantization</span><span class="tag">Offline Prediction</span></div>
+          <p>PreDE (Predict Before You Deploy) is a policy-calibrated framework that predicts whether a
+          quantization configuration will degrade a world action model's task performance before it is ever run
+          in closed loop. From the closed-loop outcomes of a small development set, it calibrates two thresholds
+          on offline action deviation, then accepts, rejects, or defers each new configuration using only a fixed
+          observation log and cached reference actions. Across five WAMs (Cosmos Policy, UVA, mimic-video,
+          RynnVLA-002 and Fast-WAM) and four benchmark settings, task losses cannot be explained by bit width
+          alone or by a shared deviation threshold. On 28 held-out configurations from two policies, PreDE issued
+          21 decisions (75% coverage) before observing any closed-loop outcome, all matching the observed labels.
+          In 450 Franka Research 3 trials, every configuration assigned to a high-deviation group showed
+          significant degradation, while W4A4 on the real robot delivered a 1.37× action-query speedup and about
+          44% lower peak memory.</p>
         </div>
       </article>
 
@@ -486,22 +476,32 @@ section[id]{scroll-margin-top:72px;}
         </div>
       </article>
 
-      <article class="pcard" id="prede">
-        <div class="pfig img"><img src="prede.jpg" alt="PreDE overview — closed-loop calibration, offline prediction and real-robot validation" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">PreDE</span></div>
+      <article class="pcard">
+        <div class="pfig img"><img src="FastVLA.jpg" alt="FastVLA overview" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">FastVLA</span></div>
         <div class="pbody">
-          <h3>PreDE</h3>
-          <div class="tags"><span class="tag">WAM</span><span class="tag">Quantization</span><span class="tag">Offline Prediction</span></div>
-          <p>PreDE (Predict Before You Deploy) is a policy-calibrated framework that predicts whether a
-          quantization configuration will degrade a world action model's task performance before it is ever run
-          in closed loop. From the closed-loop outcomes of a small development set, it calibrates two thresholds
-          on offline action deviation, then accepts, rejects, or defers each new configuration using only a fixed
-          observation log and cached reference actions. Across five WAMs (Cosmos Policy, UVA, mimic-video,
-          RynnVLA-002 and Fast-WAM) and four benchmark settings, task losses cannot be explained by bit width
-          alone or by a shared deviation threshold. On 28 held-out configurations from two policies, PreDE issued
-          21 decisions (75% coverage) before observing any closed-loop outcome, all matching the observed labels.
-          In 450 Franka Research 3 trials, every configuration assigned to a high-deviation group showed
-          significant degradation, while W4A4 on the real robot delivered a 1.37× action-query speedup and about
-          44% lower peak memory.</p>
+          <h3>FastVLA</h3>
+          <div class="tags"><span class="tag">VLA</span><span class="tag">Token Compression</span><span class="tag">Training-Free</span></div>
+          <p>A training-free, task-aware, and temporally adaptive visual-token compression framework for
+          efficient closed-loop VLA inference. At each step it scores token importance via task-to-vision
+          attention and sets the compression rate from the importance-distribution uniformity, measured by an
+          inverse-Simpson metric with online sliding-window calibration. Across OpenVLA, OpenVLA-OFT and CogACT
+          on LIBERO and SIMPLER it reduces LLM-backbone FLOPs by 35–59% and action latency by 9–32%
+          (1.09×–1.46× speedup) while maintaining task success; on a physical Franka Research 3 robot it cuts
+          end-to-end latency by 20% (1.25× speedup) at comparable success.</p>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pfig img"><img src="lowdiff.jpg" alt="LowDiff overview" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">LowDiff</span></div>
+        <div class="pbody">
+          <h3>LowDiff</h3>
+          <div class="tags"><span class="tag">Diffusion</span><span class="tag">Efficient Sampling</span><span class="tag">Image Generation</span></div>
+          <p>A cascaded diffusion framework that generates increasingly higher-resolution outputs, but replaces
+          the usual stack of stage-specific models with a single unified model that progressively refines images
+          from low to target resolution. It reaches comparable or better quality with far fewer high-resolution
+          sampling steps and applies to both pixel-space and latent-space diffusion. Across CIFAR-10, FFHQ and
+          ImageNet (conditional and unconditional) it delivers 50–80% throughput gains — e.g. FID 1.94 on
+          conditional CIFAR-10 and FID 1.59 on ImageNet-256 (LightningDiT-XL/1) — while maintaining quality.</p>
         </div>
       </article>
     </div>
