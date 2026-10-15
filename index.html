@@ -458,6 +458,25 @@ section[id]{scroll-margin-top:72px;}
     <h2 class="title">Projects</h2>
     <div class="projects-list">
 
+      <article class="pcard" id="curewm">
+        <div class="pfig img"><img src="curewm.jpg" alt="CureWM overview — execution-verified counterfactual actions used to post-train a released world model" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">CureWM</span></div>
+        <div class="pbody">
+          <h3>CureWM</h3>
+          <div class="tags"><span class="tag">World Models</span><span class="tag">Robot Learning</span><span class="tag">Failure Data</span></div>
+          <p>World Models Dream of Success: robot world models used for policy evaluation, planning and synthetic
+          data generation must tell successful actions apart from failures, yet across four released checkpoints
+          from two architecture families they respond weakly to action changes and predict success-like outcomes
+          for verified failures. CureWM repairs released checkpoints without changing their architecture or
+          training objective: it perturbs successful demonstrations across a severity grid, verifies the outcomes
+          by execution in simulation or on hardware, and fine-tunes on the resulting failures and surviving
+          successes alongside nominal data. On 484 held-out LIBERO failure counterfactuals, optimism falls from
+          80% after fine-tuning on the official data to 38% on average across four CureWM models; on a physical
+          robot arm, success-like failure predictions drop from 90% to 33%. With failure counts, successful replay
+          data and training budget matched, counterfactual failures yield a success–failure value gap of 0.124,
+          versus 0.014 for freshly collected on-policy failures.</p>
+        </div>
+      </article>
+
       <article class="pcard" id="prede">
         <div class="pfig img"><img src="prede.jpg" alt="PreDE overview — closed-loop calibration, offline prediction and real-robot validation" onerror="this.closest('.pfig').classList.add('noimg')"><span class="pfig-ph">PreDE</span></div>
         <div class="pbody">
